@@ -1,0 +1,27 @@
+﻿mun-id,full-name,region,municipality,municipal-type,total-pop-2016,total-pop-2021,land-area-km,total-km-road-length-2019
+20002,City of Toronto,City of Toronto,Toronto,City," 2,731,571.00 "," 2,794,356.00 ", 631.10 ," 6,683.70 "
+25005,City of Hamilton,City of Hamilton,Hamilton,City," 536,917.00 "," 569,353.00 "," 1,118.31 "," 3,657.63 "
+24002,City of Burlington,Halton Region,Burlington,City," 183,314.00 "," 186,948.00 ", 186.12 , 972.21 
+24001,Town of Oakville,Halton Region,Oakville,Town," 193,832.00 "," 213,759.00 ", 138.94 ," 1,131.14 "
+24009,Town of Milton,Halton Region,Milton,Town," 110,128.00 "," 132,979.00 ", 363.83 , 953.01 
+24015,Town of Halton Hills,Halton Region,Halton Hills,Town," 61,161.00 "," 62,951.00 ", 276.81 , 560.84 
+21005,City of Mississauga,Peel Region,Mississauga,City," 721,599.00 "," 717,961.00 ", 292.74 ," 2,737.45 "
+21010,City of Brampton,Peel Region,Brampton,City," 593,638.00 "," 656,480.00 ", 265.89 ," 2,266.40 "
+21024,Town of Caledon,Peel Region,Caledon,Town," 66,502.00 "," 76,581.00 ", 688.82 ," 1,153.97 "
+18001,City of Pickering,Durham Region,Pickering,City," 91,771.00 "," 99,186.00 ", 231.10 , 759.50 
+18005,Town of Ajax,Durham Region,Ajax,Town," 119,677.00 "," 126,666.00 ", 66.64 , 479.67 
+18009,Town of Whitby,Durham Region,Whitby,Town," 128,377.00 "," 138,501.00 ", 146.69 , 812.65 
+18013,City of Oshawa,Durham Region,Oshawa,City," 159,458.00 "," 175,383.00 ", 145.72 , 835.87 
+18017,Municipality of Clarington,Durham Region,Clarington,Municipality," 92,013.00 "," 101,427.00 ", 610.84 ," 1,398.47 "
+18029,Township of Uxbridge,Durham Region,Uxbridge,Township," 21,176.00 "," 21,556.00 ", 420.52 , 480.02 
+18020,Township of Scugog,Durham Region,Scugog,Township," 21,617.00 "," 21,581.00 ", 474.38 , 609.54 
+18039,Township of Brock,Durham Region,Brock,Township," 11,642.00 "," 12,567.00 ", 422.64 , 520.02 
+19028,City of Vaughan,York Region,Vaughan,City," 306,233.00 "," 323,103.00 ", 272.44 ," 1,576.30 "
+19036,City of Markham,York Region,Markham,City," 328,966.00 "," 338,503.00 ", 210.93 ," 1,504.09 "
+19038,City of Richmond Hill,York Region,Richmond Hill,City," 195,022.00 "," 202,022.00 ", 100.79 , 781.02 
+19049,Township of King,York Region,King,Township," 24,512.00 "," 27,333.00 ", 332.12 , 532.42 
+19046,Town of Aurora,York Region,Aurora,Town," 55,445.00 "," 62,057.00 ", 50.00 , 304.35 
+19044,Town of Whitchurch-Stouffville,York Region,Whitchurch-Stouffville,Town," 45,837.00 "," 49,864.00 ", 206.42 , 487.45 
+19048,Town of Newmarket,York Region,Newmarket,Town," 84,224.00 "," 87,942.00 ", 38.50 , 341.37 
+19054,Town of East Gwillimbury,York Region,East Gwillimbury,Town," 23,991.00 "," 34,637.00 ", 244.91 , 476.10 
+19070,Town of Georgina,York Region,Georgina,Town," 45,418.00 "," 47,642.00 ", 287.69 , 609.03 
