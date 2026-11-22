@@ -21,6 +21,17 @@ mun-id,municipality,short-name,region,tier,year,population-2016,population-2021,
 25005,City of Hamilton,Hamilton,Hamilton,Single-tier,2023,536917,569353,1118.31,3657.63,193.5,,,,,,,
 25005,City of Hamilton,Hamilton,Hamilton,Single-tier,2024,536917,569353,1118.31,3657.63,182,,,,,,,
 25005,City of Hamilton,Hamilton,Hamilton,Single-tier,2025,536917,569353,1118.31,3657.63,189.25,,,,,,,
+24000,Regional Municipality of Halton,Halton Region,Halton,Upper-tier,2015,,,965.70,,,5044689,0,5044689,737791649,,0.68,
+24000,Regional Municipality of Halton,Halton Region,Halton,Upper-tier,2016,,,965.70,,,5498623,0,5498623,770737663,,0.71,
+24000,Regional Municipality of Halton,Halton Region,Halton,Upper-tier,2017,,,965.70,,,5321415,0,5321415,800799168,,0.66,
+24000,Regional Municipality of Halton,Halton Region,Halton,Upper-tier,2018,,,965.70,,,5595443,0,5595443,821515490,,0.68,
+24000,Regional Municipality of Halton,Halton Region,Halton,Upper-tier,2019,,,965.70,,,6222109,0,6222109,839919039,,0.74,
+24000,Regional Municipality of Halton,Halton Region,Halton,Upper-tier,2020,,,965.70,,,6211210,0,6211210,899001966,,0.69,
+24000,Regional Municipality of Halton,Halton Region,Halton,Upper-tier,2021,,,965.70,,,6029377,0,6029377,948331808,,0.64,
+24000,Regional Municipality of Halton,Halton Region,Halton,Upper-tier,2022,,,965.70,,,6809458,0,6809458,1052176111,,0.65,
+24000,Regional Municipality of Halton,Halton Region,Halton,Upper-tier,2023,,,965.70,,,6156607,0,6156607,1153063408,,0.53,
+24000,Regional Municipality of Halton,Halton Region,Halton,Upper-tier,2024,,,965.70,,,5722170,0,5722170,1225716804,,0.47,
+24000,Regional Municipality of Halton,Halton Region,Halton,Upper-tier,2025,,,965.70,,,8835191,0,8835191,1342387330,,0.66,
 24002,City of Burlington,Burlington,Halton,Lower-tier,2015,183314,186948,186.12,972.21,181.75,4098153,485530,4583683,234188445,25.00,1.96,4714.70
 24002,City of Burlington,Burlington,Halton,Lower-tier,2016,183314,186948,186.12,972.21,182.5,3907414,486316,4393730,247428368,23.97,1.78,4519.32
 24002,City of Burlington,Burlington,Halton,Lower-tier,2017,183314,186948,186.12,972.21,183.5,3333602,451106,3784708,228615919,20.65,1.66,3892.89
@@ -65,6 +76,17 @@ mun-id,municipality,short-name,region,tier,year,population-2016,population-2021,
 24015,Town of Halton Hills,Halton Hills,Halton,Lower-tier,2023,61161,62951,276.81,560.84,220.25,1499535,217608,1717143,94532967,27.28,1.82,3061.73
 24015,Town of Halton Hills,Halton Hills,Halton,Lower-tier,2024,61161,62951,276.81,560.84,203.75,1487483,294654,1782137,99098028,28.31,1.80,3177.62
 24015,Town of Halton Hills,Halton Hills,Halton,Lower-tier,2025,61161,62951,276.81,560.84,209,2621575,305612,2927187,107895279,46.50,2.71,5219.29
+21000,Regional Municipality of Peel,Peel Region,Peel,Upper-tier,2015,,,1247.45,,,6805473,0,6805473,2037379032,,0.33,
+21000,Regional Municipality of Peel,Peel Region,Peel,Upper-tier,2016,,,1247.45,,,7293556,0,7293556,2145440938,,0.34,
+21000,Regional Municipality of Peel,Peel Region,Peel,Upper-tier,2017,,,1247.45,,,6619705,0,6619705,2260315418,,0.29,
+21000,Regional Municipality of Peel,Peel Region,Peel,Upper-tier,2018,,,1247.45,,,6500597,96887,6597484,2345496485,,0.28,
+21000,Regional Municipality of Peel,Peel Region,Peel,Upper-tier,2019,,,1247.45,,,8128576,88706,8217282,2460507241,,0.33,
+21000,Regional Municipality of Peel,Peel Region,Peel,Upper-tier,2020,,,1247.45,,,6623359,61130,6684489,2522066133,,0.27,
+21000,Regional Municipality of Peel,Peel Region,Peel,Upper-tier,2021,,,1247.45,,,5810014,80183,5890197,2684846026,,0.22,
+21000,Regional Municipality of Peel,Peel Region,Peel,Upper-tier,2022,,,1247.45,,,7135118,93669,7228787,2763009898,,0.26,
+21000,Regional Municipality of Peel,Peel Region,Peel,Upper-tier,2023,,,1247.45,,,7225770,160656,7386426,3103101001,,0.24,
+21000,Regional Municipality of Peel,Peel Region,Peel,Upper-tier,2024,,,1247.45,,,6226736,86681,6313417,3466319215,,0.18,
+21000,Regional Municipality of Peel,Peel Region,Peel,Upper-tier,2025,,,1247.45,,,9354350,152076,9506426,3784247704,,0.25,
 21005,City of Mississauga,Mississauga,Peel,Lower-tier,2015,721599,717961,292.74,2737.45,178.5,17787064,1777555,19564619,767672245,27.11,2.55,7147.02
 21005,City of Mississauga,Mississauga,Peel,Lower-tier,2016,721599,717961,292.74,2737.45,176.25,20609973,2266667,22876640,820424017,31.70,2.79,8356.92
 21005,City of Mississauga,Mississauga,Peel,Lower-tier,2017,721599,717961,292.74,2737.45,180.25,18695455,1951506,20646961,833792374,28.61,2.48,7542.41
@@ -98,6 +120,17 @@ mun-id,municipality,short-name,region,tier,year,population-2016,population-2021,
 21010,City of Brampton,Brampton,Peel,Lower-tier,2023,593638,656480,265.89,2266.4,202.5,21357056,0,21357056,989773066,32.53,2.16,9423.34
 21010,City of Brampton,Brampton,Peel,Lower-tier,2024,593638,656480,265.89,2266.4,186.25,22548749,0,22548749,1068869627,34.35,2.11,9949.15
 21010,City of Brampton,Brampton,Peel,Lower-tier,2025,593638,656480,265.89,2266.4,191.25,31137298,0,31137298,1185985431,47.43,2.63,13738.66
+19000,Regional Municipality of York,York Region,York,Upper-tier,2015,,,1743.80,,,20716189,0,20716189,1768504999,,1.17,
+19000,Regional Municipality of York,York Region,York,Upper-tier,2016,,,1743.80,,,21475915,0,21475915,1845283145,,1.16,
+19000,Regional Municipality of York,York Region,York,Upper-tier,2017,,,1743.80,,,22446970,0,22446970,2022803560,,1.11,
+19000,Regional Municipality of York,York Region,York,Upper-tier,2018,,,1743.80,,,25608299,0,25608299,2251616622,,1.14,
+19000,Regional Municipality of York,York Region,York,Upper-tier,2019,,,1743.80,,,24003285,0,24003285,2252615734,,1.07,
+19000,Regional Municipality of York,York Region,York,Upper-tier,2020,,,1743.80,,,23699623,0,23699623,2106163691,,1.13,
+19000,Regional Municipality of York,York Region,York,Upper-tier,2021,,,1743.80,,,24482129,0,24482129,2299677446,,1.06,
+19000,Regional Municipality of York,York Region,York,Upper-tier,2022,,,1743.80,,,30163391,0,30163391,2447705114,,1.23,
+19000,Regional Municipality of York,York Region,York,Upper-tier,2023,,,1743.80,,,27718838,0,27718838,2743768618,,1.01,
+19000,Regional Municipality of York,York Region,York,Upper-tier,2024,,,1743.80,,,25680703,0,25680703,2848005795,,0.90,
+19000,Regional Municipality of York,York Region,York,Upper-tier,2025,,,1743.80,,,38873937,0,38873937,3019677550,,1.29,
 19028,City of Vaughan,Vaughan,York,Lower-tier,2015,306233,323103,272.44,1576.3,196.5,9397241,873798,10271039,426334183,33.54,2.41,6515.92
 19028,City of Vaughan,Vaughan,York,Lower-tier,2016,306233,323103,272.44,1576.3,194.75,12306308,1837047,14143355,435951959,46.18,3.24,8972.50
 19028,City of Vaughan,Vaughan,York,Lower-tier,2017,306233,323103,272.44,1576.3,196.25,10607761,1761325,12369086,450514219,40.39,2.75,7846.91
@@ -197,6 +230,17 @@ mun-id,municipality,short-name,region,tier,year,population-2016,population-2021,
 19044,Town of Whitchurch-Stouffville,Whitchurch-Stouffville,York,Lower-tier,2023,45837,49864,206.42,487.45,220.5,1180591,481878,1662469,84830924,33.34,1.96,3410.54
 19044,Town of Whitchurch-Stouffville,Whitchurch-Stouffville,York,Lower-tier,2024,45837,49864,206.42,487.45,205.25,1008267,453318,1461585,93064577,29.31,1.57,2998.43
 19044,Town of Whitchurch-Stouffville,Whitchurch-Stouffville,York,Lower-tier,2025,45837,49864,206.42,487.45,213.5,1398231,956514,2354745,97906572,47.22,2.41,4830.74
+18000,Regional Municipality of Durham,Durham Region,Durham,Upper-tier,2015,,,2518.53,,,10064063,0,10064063,1095344964,,0.92,
+18000,Regional Municipality of Durham,Durham Region,Durham,Upper-tier,2016,,,2518.53,,,11154466,0,11154466,1136798245,,0.98,
+18000,Regional Municipality of Durham,Durham Region,Durham,Upper-tier,2017,,,2518.53,,,11205478,0,11205478,1198532714,,0.93,
+18000,Regional Municipality of Durham,Durham Region,Durham,Upper-tier,2018,,,2518.53,,,12754884,0,12754884,1252823486,,1.02,
+18000,Regional Municipality of Durham,Durham Region,Durham,Upper-tier,2019,,,2518.53,,,13520063,0,13520063,1297643428,,1.04,
+18000,Regional Municipality of Durham,Durham Region,Durham,Upper-tier,2020,,,2518.53,,,10407551,0,10407551,1314714956,,0.79,
+18000,Regional Municipality of Durham,Durham Region,Durham,Upper-tier,2021,,,2518.53,,,9665302,0,9665302,1430765690,,0.68,
+18000,Regional Municipality of Durham,Durham Region,Durham,Upper-tier,2022,,,2518.53,,,15507304,0,15507304,1559530258,,0.99,
+18000,Regional Municipality of Durham,Durham Region,Durham,Upper-tier,2023,,,2518.53,,,12314412,0,12314412,1701203007,,0.72,
+18000,Regional Municipality of Durham,Durham Region,Durham,Upper-tier,2024,,,2518.53,,,11161684,0,11161684,1840452890,,0.61,
+18000,Regional Municipality of Durham,Durham Region,Durham,Upper-tier,2025,,,2518.53,,,16043040,0,16043040,1987867894,,0.81,
 18001,City of Pickering,Pickering,Durham,Lower-tier,2015,91771,99186,231.1,759.5,192.25,1212528,0,1212528,81647986,13.21,1.49,1596.48
 18001,City of Pickering,Pickering,Durham,Lower-tier,2016,91771,99186,231.1,759.5,188.5,1330061,0,1330061,83237880,14.49,1.60,1751.23
 18001,City of Pickering,Pickering,Durham,Lower-tier,2017,91771,99186,231.1,759.5,193,1151229,0,1151229,86052296,12.54,1.34,1515.77

@@ -31,16 +31,6 @@ export default function AreaComparison({ records, year }: { records: MunicipalRe
           </li>
         ))}
       </ul>
-      {areas.some((a) => a.perResident != null && a.reportedCount < a.totalCount) && (
-        <p className="text-xs italic text-ink-2">
-          Not every municipality reported for {year}:{" "}
-          {areas
-            .filter((a) => a.perResident != null && a.reportedCount < a.totalCount)
-            .map((a) => `${areaLabel(a.area)} (${a.reportedCount} of ${a.totalCount})`)
-            .join(", ")}
-          .
-        </p>
-      )}
     </section>
   );
 }

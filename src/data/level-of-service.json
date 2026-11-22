@@ -533,6 +533,23 @@
       }
     },
     {
+      "name": "Durham Region",
+      "region": "Unassigned",
+      "responsibility": null,
+      "sourceUrl": null,
+      "lastVerified": null,
+      "levels": {
+        "expressway": null,
+        "arterial": null,
+        "collector": null,
+        "local": null,
+        "sidewalks": null,
+        "cycling": null,
+        "windrows": null,
+        "busStops": null
+      }
+    },
+    {
       "name": "East Gwillimbury",
       "region": "York",
       "responsibility": "Town: local roads, all sidewalks; residents: windrows; Region: Regional roads",
@@ -770,6 +787,23 @@
           "secondary": false
         },
         "expressway": null
+      }
+    },
+    {
+      "name": "Halton Region",
+      "region": "Unassigned",
+      "responsibility": null,
+      "sourceUrl": null,
+      "lastVerified": null,
+      "levels": {
+        "expressway": null,
+        "arterial": null,
+        "collector": null,
+        "local": null,
+        "sidewalks": null,
+        "cycling": null,
+        "windrows": null,
+        "busStops": null
       }
     },
     {
@@ -1422,6 +1456,23 @@
       }
     },
     {
+      "name": "Peel Region",
+      "region": "Unassigned",
+      "responsibility": null,
+      "sourceUrl": null,
+      "lastVerified": null,
+      "levels": {
+        "expressway": null,
+        "arterial": null,
+        "collector": null,
+        "local": null,
+        "sidewalks": null,
+        "cycling": null,
+        "windrows": null,
+        "busStops": null
+      }
+    },
+    {
       "name": "Pickering",
       "region": "Durham",
       "responsibility": "City: local roads, select sidewalks incl. Regional-road sidewalks; residents: sidewalks (24 hrs), windrows",
@@ -2005,6 +2056,23 @@
           "secondary": false
         },
         "expressway": null
+      }
+    },
+    {
+      "name": "York Region",
+      "region": "Unassigned",
+      "responsibility": null,
+      "sourceUrl": null,
+      "lastVerified": null,
+      "levels": {
+        "expressway": null,
+        "arterial": null,
+        "collector": null,
+        "local": null,
+        "sidewalks": null,
+        "cycling": null,
+        "windrows": null,
+        "busStops": null
       }
     }
   ]

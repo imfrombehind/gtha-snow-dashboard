@@ -1,6 +1,10 @@
 ﻿mun-id,full-name,region,municipality,municipal-type,total-pop-2016,total-pop-2021,land-area-km,total-km-road-length-2019
 20002,City of Toronto,City of Toronto,Toronto,City,"2,731,571.00","2,794,356.00",631.1,"6,683.70"
 25005,City of Hamilton,City of Hamilton,Hamilton,City,"536,917.00","569,353.00","1,118.31","3,657.63"
+24000,Regional Municipality of Halton,Halton Region,Halton Region,Region,"548,435.00","596,637.00",965.7,
+21000,Regional Municipality of Peel,Peel Region,Peel Region,Region,"1,381,739.00","1,451,022.00","1,247.45",
+19000,Regional Municipality of York,York Region,York Region,Region,"1,109,648.00","1,173,103.00","1,743.80",
+18000,Regional Municipality of Durham,Durham Region,Durham Region,Region,"645,731.00","696,867.00","2,518.53",
 24002,City of Burlington,Halton Region,Burlington,City,"183,314.00","186,948.00",186.12,972.21
 24001,Town of Oakville,Halton Region,Oakville,Town,"193,832.00","213,759.00",138.94,"1,131.14"
 24009,Town of Milton,Halton Region,Milton,Town,"110,128.00","132,979.00",363.83,953.01

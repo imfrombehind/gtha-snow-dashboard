@@ -83,7 +83,8 @@ export function snowVsSpending(records: MunicipalRecord[]): ScatterPoint[] {
     const rs = records.filter((r) => r.munId === munId);
     const snow = mean(rs.map((r) => r.avgSnowMm).filter((v): v is number => v != null));
     const per = mean(rs.map((r) => r.spendPerCapita).filter((v): v is number => v != null));
-    const population = rs[0]?.population ?? null;
+    // Dot size uses the latest population (the 2021 Census count).
+    const population = rs.at(-1)?.population ?? null;
     if (snow == null || per == null || population == null) return [];
     return [{ munId, name: rs[0]!.name, avgSnowMm: snow, perResident: per, population }];
   });

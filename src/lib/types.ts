@@ -1,8 +1,8 @@
 /**
  * Which level of government the record belongs to. Each tier has its own winter maintenance mandate.
- * Single tier: Toronto and Hamilton, which handle all winter maintenance themselves. Lower tier: cities and towns within a Region.
+ * Single tier: Toronto and Hamilton, which handle all winter maintenance themselves. Lower tier: cities and towns within a Region. Upper tier: regional governments.
  */
-export type Tier = "Single-tier" | "Lower-tier";
+export type Tier = "Single-tier" | "Lower-tier" | "Upper-tier";
 
 /** One municipality in one year, after merging and calculating measures. */
 export interface MunicipalRecord {
@@ -30,7 +30,7 @@ export interface MunicipalRecord {
    * together with roads that year, not that it spent nothing.
    */
   sidewalksCost: number | null;
-  /** 2021 Census population, used for every year. */
+  /** Population for this year: 2016 Census before 2016, interpolated 2016–2021, 2021 Census after 2021. */
   population: number | null;
   /** Total winter cost per resident, $ (the headline measure). */
   spendPerCapita: number | null;
