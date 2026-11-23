@@ -36,8 +36,10 @@ const DROPDOWN_METRICS: MetricKey[] = [
 ];
 
 const data = metricsJson as MetricsFile;
-const byYear = indexRecords(data.records);
-const seriesById = seriesByMunicipality(data.records);
+// The 26 mapped municipalities. Regions keep their profile pages, but their budgets stay out of every comparison.
+const records = data.records.filter((r) => r.tier !== "Upper-tier");
+const byYear = indexRecords(records);
+const seriesById = seriesByMunicipality(records);
 const MIN_YEAR = data.years[0]!;
 const MAX_YEAR = data.years.at(-1)!;
 
@@ -50,7 +52,7 @@ const HOW_TO_STEPS = [
 ];
 
 const PAIR_KEY = "gtha-compare-pair";
-const KNOWN_IDS = new Set(data.records.map((r) => r.munId));
+const KNOWN_IDS = new Set(records.map((r) => r.munId));
 const DEFAULT_PAIR: [string, string] = ["20002", "21005"]; // Toronto, Mississauga
 
 /** The last comparison pair this browser saved, or null if none is usable. */
@@ -277,7 +279,7 @@ export default function Page() {
         </div>
 
         <Comparison
-          records={data.records}
+          records={records}
           years={data.years}
           year={year}
           metric={metric}
@@ -289,8 +291,8 @@ export default function Page() {
         </div>
 
         <div className="grid gap-4 xl:grid-cols-2">
-          <AreaComparison records={data.records} year={year} />
-          <SnowScatter records={data.records} />
+          <AreaComparison records={records} year={year} />
+          <SnowScatter records={records} />
         </div>
       </main>
     </div>

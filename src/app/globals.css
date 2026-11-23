@@ -27,9 +27,6 @@
   /* Comparison series */
   --color-series-a: #2a78d6;
   --color-series-b: #b5461a;
-  /* A vs B in the comparison table: positive green, negative red (both AA on white and surface) */
-  --color-up: #1e7b3c;
-  --color-down: #b42318;
   --font-sans: var(--font-source-sans), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-serif: var(--font-source-serif), Georgia, "Times New Roman", serif;
 }
@@ -180,5 +177,31 @@ input[type="range"].year-slider::-moz-range-thumb {
   }
   table.stack td:not([data-label]) {
     text-align: left;
+  }
+
+  /* A vs B table on phones: indicator on its own line, the three values side by side under one header. */
+  table.compare-table,
+  table.compare-table thead,
+  table.compare-table tbody {
+    display: block;
+    width: 100%;
+  }
+  table.compare-table tr {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 6rem;
+    column-gap: 0.5rem;
+    align-items: baseline;
+    padding: 0.625rem 0;
+  }
+  table.compare-table thead th:first-child {
+    display: none;
+  }
+  table.compare-table thead th,
+  table.compare-table td {
+    padding: 0;
+  }
+  table.compare-table tbody th {
+    grid-column: 1 / -1;
+    padding: 0 0 0.25rem;
   }
 }

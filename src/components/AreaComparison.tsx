@@ -4,7 +4,8 @@ import { areaLabel, areaSummaries } from "@/lib/insights";
 /** Spending per resident for the six areas in one year. */
 export default function AreaComparison({ records, year }: { records: MunicipalRecord[]; year: number }) {
   const yearRecords = records.filter((r) => r.year === year);
-  const areas = areaSummaries(yearRecords);
+  // Alphabetical, so the list stays put between years and does not read as a ranking.
+  const areas = areaSummaries(yearRecords).sort((a, b) => areaLabel(a.area).localeCompare(areaLabel(b.area)));
   const max = Math.max(...areas.map((a) => a.perResident ?? 0), 1);
 
   return (
@@ -20,7 +21,7 @@ export default function AreaComparison({ records, year }: { records: MunicipalRe
             <span className="text-ink">{areaLabel(a.area)}</span>
             {a.perResident != null ? (
               <>
-                <span className="h-4 bg-line">
+                <span className="h-4">
                   <span className="block h-full bg-ink" style={{ width: `${(a.perResident / max) * 100}%` }} />
                 </span>
                 <span className="text-right tabular-nums text-ink">${Math.round(a.perResident)}</span>

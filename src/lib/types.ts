@@ -26,11 +26,11 @@ export interface MunicipalRecord {
   /** Own winter control for roads, $. Null = not reported that year. */
   roadsCost: number | null;
   /**
-   * Own winter control for sidewalks and parking lots, $. Zero means the municipality reports these
-   * together with roads that year, not that it spent nothing.
+   * Own winter control for sidewalks and parking lots, $. A zero has no stated reason: the costs may be
+   * included with roads, or the municipality may not pay for sidewalk clearing.
    */
   sidewalksCost: number | null;
-  /** Population for this year: 2016 Census before 2016, interpolated 2016–2021, 2021 Census after 2021. */
+  /** Population for this year: 2016 Census for 2015 to 2020, 2021 Census from 2021 onward. */
   population: number | null;
   /** Total winter cost per resident, $ (the headline measure). */
   spendPerCapita: number | null;

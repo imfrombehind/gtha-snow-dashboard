@@ -25,7 +25,8 @@ Every page shares one header (`SiteHeader`): **Dashboard · Municipality profile
 
 - `/`: **Dashboard** tab. The map (left) and the A vs B comparison (right) sit side by side, so both are visible without scrolling. Below: spending per resident by area, and snowfall vs spending. The map colours each year on its own scale (quantiles of the selected year).
 - `/?tab=overview`: **Overview** tab. Background text and how to use the dashboard.
-- `/municipality/[slug]`: **Municipality profile**. Level of service, latest figures, where the money goes, year by year.
+- `/municipality/[slug]`: **Municipality profile**. Level of service, latest figures, spending by year.
+- `/level-of-service`: **Compare levels of service**, opened from a municipality profile, with a back button to that profile. One road type across all municipalities and Regions, in alphabetical order, with a completion clock filter.
 - `/project`: **Project description**. Findings, methods, worked example, limitations, data sources.
 
 ## Data pipeline (`npm run data`)
@@ -46,11 +47,11 @@ Outputs: `src/data/municipal-metrics.json` (bundled into the page) and `public/d
 
 ### 2. Levels of service: `scripts/process-los.ts`
 
-Input: the normalized dataset in `Level of Services/`. Keeps the 26 mapped municipalities; values marked NS / NF / N/A / DATA GAP, or where sources conflict, become `n/a`; values from secondary sources are flagged.
+Input: the normalized dataset in `Level of Services/`. Keeps the 26 mapped municipalities; values marked NS / NF / N/A / DATA GAP are shown with their reason; values from secondary sources are flagged. Disputed values are listed in `DISPUTED` and show both figures, and a new conflict with no entry stops the build.
 
 Output: `src/data/level-of-service.json` (used by the municipality profiles).
 
-Public-facing text avoids "FIR", "tier" and the 0621/0622 codes. Road length and the snow-mass estimates were removed because the road-length figures are not reliable across municipalities.
+Public-facing text avoids "FIR" and the 0621/0622 codes. Road length (`total-km-road-length` in the winter costs CSV) is used to calculate spending per km for the 26 mapped municipalities. The snow-mass estimates were removed.
 
 ## Code map
 

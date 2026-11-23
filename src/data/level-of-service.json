@@ -41,6 +41,7 @@
       "responsibility": "Town: roads, sidewalks, trails, crossings; residents: sidewalks (24 hrs), windrows (paid seniors program)",
       "sourceUrl": "https://www.ajax.ca/en/inside-townhall/winter-response-information.aspx",
       "lastVerified": "November 12, 2026",
+      "unverified": false,
       "levels": {
         "arterial": {
           "terminology": "Regional roads",
@@ -50,7 +51,15 @@
           "surface": null,
           "mmsClass": "No",
           "notes": "Maintained by Region",
-          "secondary": false
+          "missing": {
+            "salting": "not-listed",
+            "plowing": "not-listed",
+            "completion": "not-listed",
+            "surface": "not-listed"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "collector": {
           "terminology": "Primary; Secondary roads",
@@ -60,7 +69,14 @@
           "surface": null,
           "mmsClass": "No",
           "notes": "Curb-to-curb",
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "local": {
           "terminology": "Residential streets",
@@ -70,7 +86,15 @@
           "surface": null,
           "mmsClass": "No",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "sidewalks": {
           "terminology": "Town sidewalks (~150 km)",
@@ -80,7 +104,15 @@
           "surface": null,
           "mmsClass": "No",
           "notes": "Residents clear within 24 hrs",
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "cycling": {
           "terminology": "Trails (~37 km)",
@@ -90,7 +122,15 @@
           "surface": null,
           "mmsClass": "No",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "windrows": {
           "terminology": "Snow Removal Program for Seniors & Qualified Residents",
@@ -100,7 +140,13 @@
           "surface": null,
           "mmsClass": "No",
           "notes": "Otherwise resident; $360.70 full / $41.13 sidewalk+windrow (2026–27)",
-          "secondary": false
+          "missing": {
+            "salting": "not-applicable",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "After snowfall ends",
+          "depth": null
         },
         "busStops": {
           "terminology": "School crossings (53)",
@@ -110,7 +156,15 @@
           "surface": null,
           "mmsClass": "No",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "expressway": null
       }
@@ -121,6 +175,7 @@
       "responsibility": "Town: roads incl. Yonge per Town table, all sidewalks, windrow pilot; Region: Regional roads",
       "sourceUrl": "https://www.aurora.ca/town-services/roads-and-traffic/winter-maintenance/",
       "lastVerified": "November 12, 2026",
+      "unverified": false,
       "levels": {
         "arterial": {
           "terminology": "Yonge Street",
@@ -130,7 +185,15 @@
           "surface": "Bare Pavement",
           "mmsClass": "No",
           "notes": "Clock basis not stated",
-          "secondary": false
+          "missing": {
+            "salting": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "Not stated",
+          "depth": [
+            5,
+            5
+          ]
         },
         "collector": {
           "terminology": "Primary roads",
@@ -140,7 +203,15 @@
           "surface": "Bare Pavement",
           "mmsClass": "No",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "Not stated",
+          "depth": [
+            8,
+            8
+          ]
         },
         "local": {
           "terminology": "Secondary roads",
@@ -150,7 +221,16 @@
           "surface": null,
           "mmsClass": "No",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "Not stated",
+          "depth": [
+            8,
+            8
+          ]
         },
         "sidewalks": {
           "terminology": "All Town sidewalks & walkways",
@@ -160,7 +240,17 @@
           "surface": null,
           "mmsClass": "No",
           "notes": "Primary and school routes first",
-          "secondary": true
+          "missing": {
+            "salting": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": [
+            5,
+            5
+          ]
         },
         "cycling": {
           "terminology": null,
@@ -170,7 +260,15 @@
           "surface": null,
           "mmsClass": "No",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "windrows": {
           "terminology": "Windrow Removal Pilot Program",
@@ -179,8 +277,16 @@
           "completion": null,
           "surface": null,
           "mmsClass": "No",
-          "notes": null,
-          "secondary": false
+          "notes": "65+/disability",
+          "missing": {
+            "salting": "not-applicable",
+            "plowing": "conflict",
+            "completion": "conflict",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "busStops": {
           "terminology": null,
@@ -190,7 +296,15 @@
           "surface": null,
           "mmsClass": "No",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "expressway": null
       }
@@ -201,6 +315,7 @@
       "responsibility": "City: roads, priority/transit sidewalks; residents: sidewalks (11 am next day), windrows; Peel: Regional roads",
       "sourceUrl": "https://www1.brampton.ca/EN/residents/Roads-and-Traffic/Maintenance-Programs/Snow-Clearing-Operations/Pages/Levels-of-Service.aspx",
       "lastVerified": "November 12, 2026",
+      "unverified": false,
       "levels": {
         "arterial": {
           "terminology": "Arterial roads",
@@ -210,7 +325,10 @@
           "surface": "Bare Pavement",
           "mmsClass": "No",
           "notes": "Regional roads by Peel",
-          "secondary": false
+          "missing": {},
+          "secondaryFields": [],
+          "clock": "After snowfall ends",
+          "depth": null
         },
         "collector": {
           "terminology": "Collector roads",
@@ -220,7 +338,10 @@
           "surface": "Centre Bare (bare to track bare)",
           "mmsClass": "No",
           "notes": null,
-          "secondary": false
+          "missing": {},
+          "secondaryFields": [],
+          "clock": "After snowfall ends",
+          "depth": null
         },
         "local": {
           "terminology": "Local roads and courts",
@@ -230,7 +351,13 @@
           "surface": "Safe & Passable / Snow Packed",
           "mmsClass": "No",
           "notes": null,
-          "secondary": false
+          "missing": {},
+          "secondaryFields": [],
+          "clock": "After snowfall ends",
+          "depth": [
+            5,
+            5
+          ]
         },
         "sidewalks": {
           "terminology": "Primary-road, transit-route, City-property sidewalks",
@@ -240,7 +367,14 @@
           "surface": null,
           "mmsClass": "No",
           "notes": "Residents clear by 11 am next day",
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "Not stated",
+          "depth": null
         },
         "cycling": {
           "terminology": "Recreational trails",
@@ -250,7 +384,15 @@
           "surface": null,
           "mmsClass": "No",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "windrows": {
           "terminology": null,
@@ -260,7 +402,14 @@
           "surface": "Resident Responsibility",
           "mmsClass": "No",
           "notes": "No program for 2025/26",
-          "secondary": false
+          "missing": {
+            "salting": "not-applicable",
+            "plowing": "not-applicable",
+            "completion": "not-applicable"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "busStops": {
           "terminology": "Bus stops",
@@ -270,7 +419,15 @@
           "surface": null,
           "mmsClass": "No",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "expressway": null
       }
@@ -281,6 +438,7 @@
       "responsibility": null,
       "sourceUrl": null,
       "lastVerified": "November 12, 2026",
+      "unverified": true,
       "levels": {
         "expressway": null,
         "arterial": null,
@@ -298,6 +456,7 @@
       "responsibility": "City: local roads, all sidewalks/MUPs/stops; Region: Regional roads; registered windrow program",
       "sourceUrl": "https://www.burlington.ca/en/roads-parking-and-traffic/snow-removal-plan.aspx",
       "lastVerified": "November 12, 2026",
+      "unverified": false,
       "levels": {
         "arterial": {
           "terminology": "Primary roads",
@@ -307,7 +466,15 @@
           "surface": null,
           "mmsClass": "No",
           "notes": "Snow Event (parking ban) at 7.5 cm; Regional roads not addressed",
-          "secondary": false
+          "missing": {
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "After snowfall ends",
+          "depth": [
+            5,
+            5
+          ]
         },
         "collector": {
           "terminology": "Secondary roads",
@@ -317,7 +484,15 @@
           "surface": null,
           "mmsClass": "No",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "After snowfall ends",
+          "depth": [
+            5,
+            5
+          ]
         },
         "local": {
           "terminology": "Residential roads",
@@ -327,17 +502,31 @@
           "surface": "Safe & Passable / Snow Packed",
           "mmsClass": "No",
           "notes": "\"not maintained to bare pavement\"",
-          "secondary": false
+          "missing": {},
+          "secondaryFields": [],
+          "clock": "After snowfall ends",
+          "depth": [
+            7.5,
+            7.5
+          ]
         },
         "sidewalks": {
           "terminology": "All sidewalks (~850 km)",
           "salting": "Salted/sanded as required",
           "plowing": "5 cm",
-          "completion": "Aim: within 48 hrs after end of snowfall; page also says plowed after all roads, \"up to 72 hours after snowfall has ended\"",
+          "completion": "Sources differ: within 48 hrs after end of snowfall (aim), up to 72 hrs after snowfall ends (same page)",
           "surface": null,
           "mmsClass": "No",
           "notes": "Same page states 48 hrs (sidewalks) and 72 hrs (high-volume off-road pathways)",
-          "secondary": false
+          "missing": {
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "After snowfall ends",
+          "depth": [
+            5,
+            5
+          ]
         },
         "cycling": {
           "terminology": "Multi-use pathways",
@@ -347,7 +536,16 @@
           "surface": null,
           "mmsClass": "No",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "Not stated",
+          "depth": [
+            5,
+            5
+          ]
         },
         "windrows": {
           "terminology": "Windrow removal (registered)",
@@ -357,7 +555,14 @@
           "surface": null,
           "mmsClass": "No",
           "notes": "Eligibility not verified",
-          "secondary": false
+          "missing": {
+            "salting": "not-applicable",
+            "plowing": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "After road plowing",
+          "depth": null
         },
         "busStops": {
           "terminology": "Transit stops",
@@ -367,7 +572,16 @@
           "surface": null,
           "mmsClass": "No",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "Not stated",
+          "depth": [
+            5,
+            5
+          ]
         },
         "expressway": null
       }
@@ -378,6 +592,7 @@
       "responsibility": "Town: 1,700+ km local roads, sidewalk routes; Peel: Regional arterials; residents: windrows",
       "sourceUrl": "https://www.caledon.ca/en/town-services/snow-removal.aspx",
       "lastVerified": "November 12, 2026",
+      "unverified": false,
       "levels": {
         "arterial": {
           "terminology": "Regional roads",
@@ -387,7 +602,15 @@
           "surface": null,
           "mmsClass": "Yes (O. Reg. 239/02)",
           "notes": "Maintained by Region (see Peel)",
-          "secondary": false
+          "missing": {
+            "salting": "not-listed",
+            "plowing": "not-listed",
+            "completion": "not-listed",
+            "surface": "not-listed"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "collector": {
           "terminology": "Town-owned roads",
@@ -397,7 +620,13 @@
           "surface": null,
           "mmsClass": "Yes",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "plowing": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "After snowfall ends",
+          "depth": null
         },
         "local": {
           "terminology": "Town-owned residential roads",
@@ -407,7 +636,13 @@
           "surface": null,
           "mmsClass": "Yes",
           "notes": "1,700+ km",
-          "secondary": false
+          "missing": {
+            "plowing": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "Not stated",
+          "depth": null
         },
         "sidewalks": {
           "terminology": "Sidewalk routes",
@@ -417,7 +652,14 @@
           "surface": null,
           "mmsClass": "Yes",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "After snowfall ends",
+          "depth": null
         },
         "cycling": {
           "terminology": null,
@@ -427,7 +669,15 @@
           "surface": null,
           "mmsClass": "Yes",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "windrows": {
           "terminology": null,
@@ -437,7 +687,14 @@
           "surface": "Resident Responsibility",
           "mmsClass": "Yes",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-applicable",
+            "plowing": "not-applicable",
+            "completion": "not-applicable"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "busStops": {
           "terminology": null,
@@ -447,7 +704,15 @@
           "surface": null,
           "mmsClass": "Yes",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "expressway": null
       }
@@ -458,6 +723,7 @@
       "responsibility": "Municipality: roads, primary-route sidewalks, PXOs; residents: other sidewalks (24 hrs); seniors bundle",
       "sourceUrl": "https://www.clarington.net/community-and-people/roads-and-transportation/snow-clearing-and-winter-maintenance/",
       "lastVerified": "November 12, 2026",
+      "unverified": false,
       "levels": {
         "arterial": {
           "terminology": "Main roads and emergency routes",
@@ -467,7 +733,15 @@
           "surface": null,
           "mmsClass": "No",
           "notes": "Cleared first; Regional roads by Durham",
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "collector": {
           "terminology": "Primary routes",
@@ -477,7 +751,15 @@
           "surface": null,
           "mmsClass": "No",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "local": {
           "terminology": "Residential streets",
@@ -487,7 +769,14 @@
           "surface": null,
           "mmsClass": "No",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "After snowfall ends",
+          "depth": null
         },
         "sidewalks": {
           "terminology": "Municipal sidewalk program (primary routes)",
@@ -497,7 +786,14 @@
           "surface": null,
           "mmsClass": "No",
           "notes": "Since 2023-24; residents clear others within 24 hrs",
-          "secondary": false
+          "missing": {
+            "plowing": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "cycling": {
           "terminology": null,
@@ -507,7 +803,15 @@
           "surface": null,
           "mmsClass": "No",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "windrows": {
           "terminology": "Snow Clearing Program for Seniors and Persons with Disabilities",
@@ -517,7 +821,15 @@
           "surface": null,
           "mmsClass": "No",
           "notes": "Bundled sidewalk + windrow, set fee",
-          "secondary": false
+          "missing": {
+            "salting": "not-applicable",
+            "plowing": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "busStops": {
           "terminology": "Pedestrian crossovers, school crossings",
@@ -527,74 +839,60 @@
           "surface": null,
           "mmsClass": "No",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "plowing": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "expressway": null
       }
     },
     {
       "name": "Durham Region",
-      "region": "Unassigned",
-      "responsibility": null,
-      "sourceUrl": null,
-      "lastVerified": null,
-      "levels": {
-        "expressway": null,
-        "arterial": null,
-        "collector": null,
-        "local": null,
-        "sidewalks": null,
-        "cycling": null,
-        "windrows": null,
-        "busStops": null
-      }
-    },
-    {
-      "name": "East Gwillimbury",
-      "region": "York",
-      "responsibility": "Town: local roads, all sidewalks; residents: windrows; Region: Regional roads",
-      "sourceUrl": "https://www.eastgwillimbury.ca/en/municipal-services/snow-clearing.aspx",
+      "region": "Durham",
+      "responsibility": "Region: Regional roads (no numeric LOS); lower tiers: sidewalks",
+      "sourceUrl": "https://www.durham.ca/en/living-here/regional-road-maintenance.aspx",
       "lastVerified": "November 12, 2026",
+      "unverified": false,
       "levels": {
         "arterial": {
-          "terminology": "Regional roads",
-          "salting": null,
+          "terminology": "Regional Roads",
+          "salting": "Anti-icing brine pre-storm; salt on snow/freezing rain",
           "plowing": null,
           "completion": null,
           "surface": null,
           "mmsClass": "No",
-          "notes": "Maintained by York Region",
-          "secondary": false
-        },
-        "collector": {
-          "terminology": "Primary roads",
-          "salting": null,
-          "plowing": "8 cm",
-          "completion": null,
-          "surface": null,
-          "mmsClass": "No",
-          "notes": null,
-          "secondary": false
-        },
-        "local": {
-          "terminology": "Residential streets",
-          "salting": null,
-          "plowing": null,
-          "completion": null,
-          "surface": null,
-          "mmsClass": "No",
-          "notes": null,
-          "secondary": false
+          "notes": "Patrolled 7 days/week; no numeric LOS",
+          "missing": {
+            "plowing": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "sidewalks": {
-          "terminology": "All Town sidewalks",
+          "terminology": null,
           "salting": null,
-          "plowing": "2.5 cm",
-          "completion": "Usually 24 hrs after storm",
+          "plowing": null,
+          "completion": null,
           "surface": null,
           "mmsClass": "No",
-          "notes": null,
-          "secondary": false
+          "notes": "Local municipalities clear",
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "cycling": {
           "terminology": null,
@@ -604,7 +902,142 @@
           "surface": null,
           "mmsClass": "No",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
+        },
+        "windrows": {
+          "terminology": null,
+          "salting": null,
+          "plowing": null,
+          "completion": null,
+          "surface": null,
+          "mmsClass": "No",
+          "notes": null,
+          "missing": {
+            "salting": "not-applicable",
+            "plowing": "not-applicable",
+            "completion": "not-applicable",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
+        },
+        "expressway": null,
+        "collector": null,
+        "local": null,
+        "busStops": null
+      }
+    },
+    {
+      "name": "East Gwillimbury",
+      "region": "York",
+      "responsibility": "Town: local roads, all sidewalks; residents: windrows; Region: Regional roads",
+      "sourceUrl": "https://www.eastgwillimbury.ca/en/municipal-services/snow-clearing.aspx",
+      "lastVerified": "November 12, 2026",
+      "unverified": false,
+      "levels": {
+        "arterial": {
+          "terminology": "Regional roads",
+          "salting": null,
+          "plowing": null,
+          "completion": null,
+          "surface": null,
+          "mmsClass": "No",
+          "notes": "Maintained by York Region",
+          "missing": {
+            "salting": "not-listed",
+            "plowing": "not-listed",
+            "completion": "not-listed",
+            "surface": "not-listed"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
+        },
+        "collector": {
+          "terminology": "Primary roads",
+          "salting": null,
+          "plowing": "8 cm",
+          "completion": null,
+          "surface": null,
+          "mmsClass": "No",
+          "notes": null,
+          "missing": {
+            "salting": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": [
+            8,
+            8
+          ]
+        },
+        "local": {
+          "terminology": "Residential streets",
+          "salting": null,
+          "plowing": "Sources differ: 8 cm (page), 10 cm (older guide)",
+          "completion": null,
+          "surface": null,
+          "mmsClass": "No",
+          "notes": null,
+          "missing": {
+            "salting": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": [
+            8,
+            10
+          ]
+        },
+        "sidewalks": {
+          "terminology": "All Town sidewalks",
+          "salting": null,
+          "plowing": "2.5 cm",
+          "completion": "Usually 24 hrs after storm",
+          "surface": null,
+          "mmsClass": "No",
+          "notes": null,
+          "missing": {
+            "salting": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "After snowfall ends",
+          "depth": [
+            2.5,
+            2.5
+          ]
+        },
+        "cycling": {
+          "terminology": null,
+          "salting": null,
+          "plowing": null,
+          "completion": null,
+          "surface": null,
+          "mmsClass": "No",
+          "notes": null,
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "windrows": {
           "terminology": null,
@@ -614,7 +1047,14 @@
           "surface": "Resident Responsibility",
           "mmsClass": "No",
           "notes": "Financial assistance pilot only",
-          "secondary": false
+          "missing": {
+            "salting": "not-applicable",
+            "plowing": "not-applicable",
+            "completion": "not-applicable"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "busStops": {
           "terminology": null,
@@ -624,7 +1064,15 @@
           "surface": null,
           "mmsClass": "No",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "expressway": null
       }
@@ -635,6 +1083,7 @@
       "responsibility": "Town: local roads, 140 km sidewalks/paths, seniors windrows; Region: Regional roads",
       "sourceUrl": "https://www.georgina.ca/living-here/roads-and-sidewalks/winter-maintenance-and-snow-removal",
       "lastVerified": "November 12, 2026",
+      "unverified": false,
       "levels": {
         "arterial": {
           "terminology": "Class 1–2 (MMS table)",
@@ -644,7 +1093,16 @@
           "surface": null,
           "mmsClass": "Yes (MMS table)",
           "notes": "Guide dated 2022",
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "After snowfall ends",
+          "depth": [
+            2.5,
+            5
+          ]
         },
         "collector": {
           "terminology": "Class 3 / secondary",
@@ -654,7 +1112,16 @@
           "surface": null,
           "mmsClass": "Yes",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "Not stated",
+          "depth": [
+            3,
+            8
+          ]
         },
         "local": {
           "terminology": "Class 4–5",
@@ -664,7 +1131,16 @@
           "surface": null,
           "mmsClass": "Yes",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "Not stated",
+          "depth": [
+            8,
+            10
+          ]
         },
         "sidewalks": {
           "terminology": "Sidewalks & paths (~140 km)",
@@ -674,7 +1150,16 @@
           "surface": null,
           "mmsClass": "Yes",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "Not stated",
+          "depth": [
+            3,
+            5
+          ]
         },
         "cycling": {
           "terminology": "Paths",
@@ -684,7 +1169,16 @@
           "surface": null,
           "mmsClass": "Yes",
           "notes": "With sidewalks",
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "Not stated",
+          "depth": [
+            3,
+            5
+          ]
         },
         "windrows": {
           "terminology": "Windrow Snow Clearing Program (PO-RD-W5)",
@@ -694,7 +1188,13 @@
           "surface": null,
           "mmsClass": "Yes",
           "notes": "65+ or disability",
-          "secondary": false
+          "missing": {
+            "salting": "not-applicable",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "After road plowing",
+          "depth": null
         },
         "busStops": {
           "terminology": null,
@@ -704,7 +1204,15 @@
           "surface": null,
           "mmsClass": "Yes",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "expressway": null
       }
@@ -715,6 +1223,7 @@
       "responsibility": "Town: Town and Regional roads, designated sidewalks; residents: windrows",
       "sourceUrl": "https://www.haltonhills.ca/en/residents/winter-maintenance.aspx",
       "lastVerified": "November 12, 2026",
+      "unverified": false,
       "levels": {
         "arterial": {
           "terminology": "Priority 1: Main roads (incl. Regional roads)",
@@ -724,7 +1233,10 @@
           "surface": "Bare Pavement",
           "mmsClass": "Yes (O. Reg. 239/02)",
           "notes": "Town clears Regional roads in Halton Hills",
-          "secondary": false
+          "missing": {},
+          "secondaryFields": [],
+          "clock": "After snowfall ends",
+          "depth": null
         },
         "collector": {
           "terminology": "Priority 2: Collector roads",
@@ -734,7 +1246,12 @@
           "surface": "Bare Pavement",
           "mmsClass": "Yes",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "plowing": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "After snowfall ends",
+          "depth": null
         },
         "local": {
           "terminology": "Priority 3: Residential and rural roads",
@@ -744,7 +1261,12 @@
           "surface": "Safe & Passable / Snow Packed",
           "mmsClass": "Yes",
           "notes": "Snow-packed locals deemed acceptable",
-          "secondary": false
+          "missing": {
+            "plowing": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "After snowfall ends",
+          "depth": null
         },
         "sidewalks": {
           "terminology": "Designated sidewalks (~160 km)",
@@ -754,7 +1276,14 @@
           "surface": null,
           "mmsClass": "Yes",
           "notes": "Designated under By-law No. 2007-0003: roads > 1,000 vehicles/day and school frontages",
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "After snowfall ends",
+          "depth": null
         },
         "cycling": {
           "terminology": null,
@@ -764,7 +1293,15 @@
           "surface": null,
           "mmsClass": "Yes",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "windrows": {
           "terminology": null,
@@ -774,7 +1311,14 @@
           "surface": "Resident Responsibility",
           "mmsClass": "Yes",
           "notes": "Seniors service discussed in TPW-2023-023 only",
-          "secondary": false
+          "missing": {
+            "salting": "not-applicable",
+            "plowing": "not-applicable",
+            "completion": "not-applicable"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "busStops": {
           "terminology": null,
@@ -784,25 +1328,102 @@
           "surface": null,
           "mmsClass": "Yes",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "expressway": null
       }
     },
     {
       "name": "Halton Region",
-      "region": "Unassigned",
-      "responsibility": null,
-      "sourceUrl": null,
-      "lastVerified": null,
+      "region": "Halton",
+      "responsibility": "Region: Regional roads (LOS unpublished, under review); Halton Hills clears Regional roads in its boundary",
+      "sourceUrl": "https://www.halton.ca/repository/salt-management-plan",
+      "lastVerified": "November 12, 2026",
+      "unverified": false,
       "levels": {
+        "arterial": {
+          "terminology": "Regional Roads",
+          "salting": null,
+          "plowing": null,
+          "completion": null,
+          "surface": null,
+          "mmsClass": "No",
+          "notes": "LOS in \"Performance and Maintenance Standards… currently under review\"; Halton Hills clears Regional roads in its boundary",
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
+        },
+        "sidewalks": {
+          "terminology": null,
+          "salting": null,
+          "plowing": null,
+          "completion": null,
+          "surface": null,
+          "mmsClass": "No",
+          "notes": null,
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
+        },
+        "cycling": {
+          "terminology": null,
+          "salting": null,
+          "plowing": null,
+          "completion": null,
+          "surface": null,
+          "mmsClass": "No",
+          "notes": null,
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
+        },
+        "windrows": {
+          "terminology": null,
+          "salting": null,
+          "plowing": null,
+          "completion": null,
+          "surface": null,
+          "mmsClass": "No",
+          "notes": null,
+          "missing": {
+            "salting": "not-applicable",
+            "plowing": "not-applicable",
+            "completion": "not-applicable",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
+        },
         "expressway": null,
-        "arterial": null,
         "collector": null,
         "local": null,
-        "sidewalks": null,
-        "cycling": null,
-        "windrows": null,
         "busStops": null
       }
     },
@@ -812,6 +1433,7 @@
       "responsibility": "City: all roads incl. Linc/RHVP and 885 km of transit sidewalks; residents: other sidewalks within 24 hrs; MTO: provincial highways",
       "sourceUrl": "https://www.hamilton.ca/home-neighbourhood/getting-around/streets-sidewalks/snow-clearing",
       "lastVerified": "November 12, 2026",
+      "unverified": false,
       "levels": {
         "expressway": {
           "terminology": "Parkways (Linc, Red Hill Valley Pkwy)",
@@ -821,7 +1443,14 @@
           "surface": null,
           "mmsClass": "No",
           "notes": "MTO maintains provincial highways",
-          "secondary": false
+          "missing": {
+            "plowing": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "arterial": {
           "terminology": "Priority 1: Major arterial roads & escarpment accesses",
@@ -831,7 +1460,15 @@
           "surface": "Bare Pavement",
           "mmsClass": "No",
           "notes": "Council LOS: Appendix \"B\" to Report PW18096(a)",
-          "secondary": true
+          "missing": {},
+          "secondaryFields": [
+            "plowing"
+          ],
+          "clock": "After snowfall ends",
+          "depth": [
+            2.5,
+            5
+          ]
         },
         "collector": {
           "terminology": "Priority 2: Collector roads (2A = transit)",
@@ -841,7 +1478,17 @@
           "surface": "Bare Pavement",
           "mmsClass": "No",
           "notes": "Full table not retrieved",
-          "secondary": true
+          "missing": {},
+          "secondaryFields": [
+            "plowing",
+            "completion",
+            "surface"
+          ],
+          "clock": "After snowfall ends",
+          "depth": [
+            8,
+            8
+          ]
         },
         "local": {
           "terminology": "Priority 3: Neighbourhood streets",
@@ -851,7 +1498,15 @@
           "surface": null,
           "mmsClass": "No",
           "notes": "Rural loose-top Class 6 = 10 cm, 24-hr response (Appendix B)",
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "sidewalks": {
           "terminology": "Priority 1 & 2A transit-route sidewalks",
@@ -861,7 +1516,13 @@
           "surface": null,
           "mmsClass": "No",
           "notes": "City clears 885 km; residents clear others within 24 hrs (By-law 03-296)",
-          "secondary": false
+          "missing": {
+            "plowing": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "After snowfall ends",
+          "depth": null
         },
         "cycling": {
           "terminology": "Bicycle lanes (Report PW10096a)",
@@ -871,7 +1532,15 @@
           "surface": null,
           "mmsClass": "No",
           "notes": "Figures not retrieved",
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "windrows": {
           "terminology": null,
@@ -881,7 +1550,14 @@
           "surface": "Resident Responsibility",
           "mmsClass": "No",
           "notes": "No program found",
-          "secondary": false
+          "missing": {
+            "salting": "not-applicable",
+            "plowing": "not-applicable",
+            "completion": "not-applicable"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "busStops": {
           "terminology": "Transit stops",
@@ -891,7 +1567,13 @@
           "surface": null,
           "mmsClass": "No",
           "notes": "Added 2022",
-          "secondary": false
+          "missing": {
+            "plowing": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "After snowfall ends",
+          "depth": null
         }
       }
     },
@@ -901,6 +1583,7 @@
       "responsibility": "Township: roads, sidewalks (contracted), seniors windrows; Region: Regional roads",
       "sourceUrl": "https://www.king.ca/transportation",
       "lastVerified": "November 12, 2026",
+      "unverified": false,
       "levels": {
         "arterial": {
           "terminology": "Regional roads",
@@ -910,27 +1593,51 @@
           "surface": null,
           "mmsClass": "Partial",
           "notes": "Maintained by York Region",
-          "secondary": false
+          "missing": {
+            "salting": "not-listed",
+            "plowing": "not-listed",
+            "completion": "not-listed",
+            "surface": "not-listed"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "collector": {
           "terminology": "Major / Class 3–4 routes",
-          "salting": null,
-          "plowing": null,
-          "completion": null,
+          "salting": "Treated at 8 cm",
+          "plowing": "8 cm",
+          "completion": "Sources differ: 16 hrs after snowfall ends (page), 12 hrs (2025 flyer)",
           "surface": null,
           "mmsClass": "Partial (MMS named)",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "After snowfall ends",
+          "depth": [
+            8,
+            8
+          ]
         },
         "local": {
           "terminology": "Class 5 / cul-de-sacs",
           "salting": "8 cm",
           "plowing": "8 cm",
-          "completion": "12–16 hrs (conflict)",
+          "completion": "Sources differ: 12 hrs, 16 hrs (sources not named)",
           "surface": null,
           "mmsClass": "Partial",
           "notes": "Cul-de-sacs last",
-          "secondary": false
+          "missing": {
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "Not stated",
+          "depth": [
+            8,
+            8
+          ]
         },
         "sidewalks": {
           "terminology": "Township sidewalks (contracted)",
@@ -940,7 +1647,15 @@
           "surface": null,
           "mmsClass": "Partial",
           "notes": "Resident duty not verified",
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "cycling": {
           "terminology": null,
@@ -950,7 +1665,15 @@
           "surface": null,
           "mmsClass": "Partial",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "windrows": {
           "terminology": "Senior Snow Removal Assistance Program",
@@ -960,7 +1683,13 @@
           "surface": null,
           "mmsClass": "Partial",
           "notes": "65+ households",
-          "secondary": false
+          "missing": {
+            "salting": "not-applicable",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "After road plowing",
+          "depth": null
         },
         "busStops": {
           "terminology": null,
@@ -970,7 +1699,15 @@
           "surface": null,
           "mmsClass": "Partial",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "expressway": null
       }
@@ -981,6 +1718,7 @@
       "responsibility": "City: ~2,100 km roads, sidewalks, 60+/disability windrows; Region: Regional arterials",
       "sourceUrl": "https://www.markham.ca/neighbourhood-services/roads-sidewalks/winter-road-services",
       "lastVerified": "November 12, 2026",
+      "unverified": false,
       "levels": {
         "arterial": {
           "terminology": "Arterial roads",
@@ -990,7 +1728,15 @@
           "surface": null,
           "mmsClass": "Partial (meets/exceeds Provincial standards)",
           "notes": "Mostly York Region",
-          "secondary": false
+          "missing": {
+            "salting": "not-listed",
+            "plowing": "not-listed",
+            "completion": "not-listed",
+            "surface": "not-listed"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "collector": {
           "terminology": "Primary / Secondary roads",
@@ -1000,7 +1746,15 @@
           "surface": null,
           "mmsClass": "Partial",
           "notes": "Mapping of 5 cm/14 hrs to class inferred",
-          "secondary": false
+          "missing": {
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "Not stated",
+          "depth": [
+            5,
+            5
+          ]
         },
         "local": {
           "terminology": "Local / residential roads",
@@ -1010,7 +1764,16 @@
           "surface": null,
           "mmsClass": "Partial",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "Not stated",
+          "depth": [
+            7.5,
+            7.5
+          ]
         },
         "sidewalks": {
           "terminology": "Sidewalks (arterial/primary first)",
@@ -1020,7 +1783,17 @@
           "surface": null,
           "mmsClass": "Partial",
           "notes": "City clears",
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": [
+            5,
+            5
+          ]
         },
         "cycling": {
           "terminology": null,
@@ -1030,7 +1803,15 @@
           "surface": null,
           "mmsClass": "Partial",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "windrows": {
           "terminology": "Snow Windrow Removal Assistance Program",
@@ -1040,7 +1821,13 @@
           "surface": null,
           "mmsClass": "Partial",
           "notes": "60+ and disabled residents",
-          "secondary": false
+          "missing": {
+            "salting": "not-applicable",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "After road plowing",
+          "depth": null
         },
         "busStops": {
           "terminology": null,
@@ -1050,7 +1837,15 @@
           "surface": null,
           "mmsClass": "Partial",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "expressway": null
       }
@@ -1061,6 +1856,7 @@
       "responsibility": "Town: roads, priority sidewalks; residents: sidewalks (24 hrs) and windrows (seniors program)",
       "sourceUrl": "https://www.milton.ca/en/living-in-milton/snow-removal.aspx",
       "lastVerified": "November 12, 2026",
+      "unverified": false,
       "levels": {
         "arterial": {
           "terminology": "Priority 1: Major roads and transit routes",
@@ -1070,7 +1866,12 @@
           "surface": "Bare Pavement",
           "mmsClass": "Yes (O. Reg. 239/02)",
           "notes": "SWE may extend",
-          "secondary": true
+          "missing": {
+            "plowing": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "After snowfall ends",
+          "depth": null
         },
         "collector": {
           "terminology": "Priority 2: Rural collector roads and industrial areas",
@@ -1080,7 +1881,12 @@
           "surface": "Bare Pavement",
           "mmsClass": "Yes",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "plowing": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "After snowfall ends",
+          "depth": null
         },
         "local": {
           "terminology": "Priority 3: Urban and rural residential roads",
@@ -1090,7 +1896,13 @@
           "surface": null,
           "mmsClass": "Yes",
           "notes": null,
-          "secondary": true
+          "missing": {
+            "plowing": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "After snowfall ends",
+          "depth": null
         },
         "sidewalks": {
           "terminology": "Sidewalks for schools, transit, major pedestrian routes",
@@ -1100,7 +1912,17 @@
           "surface": null,
           "mmsClass": "Yes",
           "notes": "Residents clear own sidewalks within 24 hrs",
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": [
+            5,
+            5
+          ]
         },
         "cycling": {
           "terminology": "Pathways",
@@ -1110,7 +1932,17 @@
           "surface": null,
           "mmsClass": "Yes",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": [
+            5,
+            5
+          ]
         },
         "windrows": {
           "terminology": "Windrow removal program",
@@ -1120,7 +1952,14 @@
           "surface": "Resident Responsibility",
           "mmsClass": "Yes",
           "notes": "Program for seniors/persons with disabilities",
-          "secondary": false
+          "missing": {
+            "salting": "not-applicable",
+            "plowing": "not-published",
+            "completion": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "busStops": {
           "terminology": null,
@@ -1130,7 +1969,15 @@
           "surface": null,
           "mmsClass": "Yes",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "expressway": null
       }
@@ -1141,6 +1988,7 @@
       "responsibility": "City: roads, all sidewalks, trails, stops, bike lanes, windrows; Peel: Regional roads",
       "sourceUrl": "https://www.mississauga.ca/services-and-programs/transportation-and-streets/roads-and-sidewalks/snow-clearing/",
       "lastVerified": "November 12, 2026",
+      "unverified": false,
       "levels": {
         "arterial": {
           "terminology": "Major and priority roads",
@@ -1150,17 +1998,33 @@
           "surface": null,
           "mmsClass": "No",
           "notes": "SWE puts timelines on hold; renewed heavy snow restarts process; Regional roads by Peel",
-          "secondary": false
+          "missing": {
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "After snowfall ends",
+          "depth": [
+            5,
+            5
+          ]
         },
         "collector": {
           "terminology": "Priority roads (collectors)",
-          "salting": null,
-          "plowing": null,
-          "completion": null,
+          "salting": "Sources differ: older text gives 2 cm for select collectors, 5 cm for local collectors",
+          "plowing": "Sources differ: 5 cm (current), 2 cm for select collectors (older text)",
+          "completion": "As priority roads",
           "surface": null,
           "mmsClass": "No",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "After snowfall ends",
+          "depth": [
+            2,
+            5
+          ]
         },
         "local": {
           "terminology": "Residential (secondary) roads",
@@ -1170,7 +2034,15 @@
           "surface": null,
           "mmsClass": "No",
           "notes": "Some residential streets are priority",
-          "secondary": false
+          "missing": {
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "After snowfall ends",
+          "depth": [
+            5,
+            5
+          ]
         },
         "sidewalks": {
           "terminology": "Priority sidewalks; residential sidewalks",
@@ -1180,7 +2052,15 @@
           "surface": null,
           "mmsClass": "No",
           "notes": "City clears all sidewalks",
-          "secondary": false
+          "missing": {
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "Not stated",
+          "depth": [
+            5,
+            5
+          ]
         },
         "cycling": {
           "terminology": "Trails, bike lanes",
@@ -1190,7 +2070,16 @@
           "surface": null,
           "mmsClass": "No",
           "notes": "Old maps say > 8 cm (outdated)",
-          "secondary": false
+          "missing": {
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": [
+            5,
+            5
+          ]
         },
         "windrows": {
           "terminology": "Driveway windrow clearing (standard service)",
@@ -1200,7 +2089,13 @@
           "surface": null,
           "mmsClass": "No",
           "notes": "Universal; skipped if blocked",
-          "secondary": false
+          "missing": {
+            "salting": "not-applicable",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "After road plowing",
+          "depth": null
         },
         "busStops": {
           "terminology": "Bus stops, crossings",
@@ -1210,7 +2105,15 @@
           "surface": null,
           "mmsClass": "No",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "Not stated",
+          "depth": [
+            5,
+            5
+          ]
         },
         "expressway": null
       }
@@ -1221,6 +2124,7 @@
       "responsibility": "Town: local roads, 364 km sidewalks, windrow pilot; Region: Regional roads",
       "sourceUrl": "https://www.newmarket.ca/roads-transportation/roads-sidewalks/snow-removal",
       "lastVerified": "November 12, 2026",
+      "unverified": false,
       "levels": {
         "arterial": {
           "terminology": "Regional roads",
@@ -1230,7 +2134,15 @@
           "surface": null,
           "mmsClass": "Yes (cites \"239\")",
           "notes": "Maintained by York Region",
-          "secondary": false
+          "missing": {
+            "salting": "not-listed",
+            "plowing": "not-listed",
+            "completion": "not-listed",
+            "surface": "not-listed"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "collector": {
           "terminology": "Higher-traffic & emergency routes",
@@ -1240,7 +2152,16 @@
           "surface": null,
           "mmsClass": "Yes",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "After snowfall ends",
+          "depth": [
+            6,
+            6
+          ]
         },
         "local": {
           "terminology": "Residential streets & courts",
@@ -1250,7 +2171,16 @@
           "surface": null,
           "mmsClass": "Yes",
           "notes": "Requests accepted 16 hrs after snow stops",
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "After snowfall ends",
+          "depth": [
+            6,
+            6
+          ]
         },
         "sidewalks": {
           "terminology": "All Town sidewalks (364 km)",
@@ -1260,7 +2190,14 @@
           "surface": null,
           "mmsClass": "Yes",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "Not stated",
+          "depth": null
         },
         "cycling": {
           "terminology": null,
@@ -1270,7 +2207,15 @@
           "surface": null,
           "mmsClass": "Yes",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "windrows": {
           "terminology": "Residential Windrow Opening Pilot Program",
@@ -1280,7 +2225,13 @@
           "surface": null,
           "mmsClass": "Yes",
           "notes": "First 100 eligible households",
-          "secondary": false
+          "missing": {
+            "salting": "not-applicable",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "Not stated",
+          "depth": null
         },
         "busStops": {
           "terminology": null,
@@ -1290,7 +2241,15 @@
           "surface": null,
           "mmsClass": "Yes",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "expressway": null
       }
@@ -1301,6 +2260,7 @@
       "responsibility": "Town: local roads, sidewalks, paid windrows; Region: Regional roads",
       "sourceUrl": "https://www.oakville.ca/transportation-roads/roads-sidewalks/snow-clearing/driveway-windrow-snow-clearing/",
       "lastVerified": "November 12, 2026",
+      "unverified": false,
       "levels": {
         "arterial": {
           "terminology": "First Priority: Primary roads",
@@ -1310,7 +2270,17 @@
           "surface": null,
           "mmsClass": "No",
           "notes": "SWE suspends standard timelines",
-          "secondary": true
+          "missing": {
+            "surface": "not-published"
+          },
+          "secondaryFields": [
+            "salting"
+          ],
+          "clock": "After snowfall ends",
+          "depth": [
+            2.5,
+            2.5
+          ]
         },
         "collector": {
           "terminology": "Second Priority: Secondary roads incl. bus routes",
@@ -1320,7 +2290,19 @@
           "surface": null,
           "mmsClass": "No",
           "notes": null,
-          "secondary": true
+          "missing": {
+            "surface": "not-published"
+          },
+          "secondaryFields": [
+            "salting",
+            "plowing",
+            "completion"
+          ],
+          "clock": "After snowfall ends",
+          "depth": [
+            5,
+            5
+          ]
         },
         "local": {
           "terminology": "Third Priority: Residential roads",
@@ -1330,7 +2312,16 @@
           "surface": null,
           "mmsClass": "No",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "After snowfall ends",
+          "depth": [
+            7.5,
+            7.5
+          ]
         },
         "sidewalks": {
           "terminology": "Primary/secondary and residential sidewalks",
@@ -1340,7 +2331,19 @@
           "surface": null,
           "mmsClass": "No",
           "notes": "After roads; school sidewalks first",
-          "secondary": true
+          "missing": {
+            "surface": "not-published"
+          },
+          "secondaryFields": [
+            "salting",
+            "plowing",
+            "completion"
+          ],
+          "clock": "Not stated",
+          "depth": [
+            5,
+            8
+          ]
         },
         "cycling": {
           "terminology": "Speers Road bike lane",
@@ -1350,7 +2353,15 @@
           "surface": null,
           "mmsClass": "No",
           "notes": "Listed as active operation",
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "windrows": {
           "terminology": "Driveway Windrow Snow Clearing (paid)",
@@ -1360,7 +2371,13 @@
           "surface": null,
           "mmsClass": "No",
           "notes": "Dec 1 2026–Mar 31 2027; once per event; priority registration 65+/disability",
-          "secondary": false
+          "missing": {
+            "salting": "not-applicable",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "After snowfall ends",
+          "depth": null
         },
         "busStops": {
           "terminology": "Transit stops",
@@ -1370,7 +2387,19 @@
           "surface": null,
           "mmsClass": "No",
           "notes": null,
-          "secondary": true
+          "missing": {
+            "salting": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [
+            "plowing",
+            "completion"
+          ],
+          "clock": "Not stated",
+          "depth": [
+            5,
+            5
+          ]
         },
         "expressway": null
       }
@@ -1381,6 +2410,7 @@
       "responsibility": "City: roads (6/12/16 hrs); Region: Regional roads; owners: sidewalks by midnight next day; assistance program",
       "sourceUrl": "https://www.oshawa.ca/getting-around/snow-clearing/snow-clearing-activity-report/",
       "lastVerified": "November 12, 2026",
+      "unverified": false,
       "levels": {
         "arterial": {
           "terminology": "Arterial (primary)",
@@ -1390,7 +2420,14 @@
           "surface": null,
           "mmsClass": "Yes (O. Reg. 239/02)",
           "notes": "Region maintains Regional roads",
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "After snowfall ends",
+          "depth": null
         },
         "collector": {
           "terminology": "Collector (primary)",
@@ -1400,7 +2437,14 @@
           "surface": null,
           "mmsClass": "Yes",
           "notes": "Transit/emergency routes, schools",
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "After snowfall ends",
+          "depth": null
         },
         "local": {
           "terminology": "Residential (secondary)",
@@ -1410,7 +2454,14 @@
           "surface": null,
           "mmsClass": "Yes",
           "notes": null,
-          "secondary": true
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "After snowfall ends",
+          "depth": null
         },
         "sidewalks": {
           "terminology": "City sidewalks per service map",
@@ -1420,7 +2471,15 @@
           "surface": null,
           "mmsClass": "Yes",
           "notes": "Owners clear by midnight next day",
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "cycling": {
           "terminology": "Trails & walkways",
@@ -1430,7 +2489,15 @@
           "surface": null,
           "mmsClass": "Yes",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "windrows": {
           "terminology": "Snow Clearing Assistance Program",
@@ -1440,7 +2507,13 @@
           "surface": null,
           "mmsClass": "Yes",
           "notes": "Registered residents only",
-          "secondary": false
+          "missing": {
+            "salting": "not-applicable",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "After snowfall ends",
+          "depth": null
         },
         "busStops": {
           "terminology": null,
@@ -1450,25 +2523,101 @@
           "surface": null,
           "mmsClass": "Yes",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "expressway": null
       }
     },
     {
       "name": "Peel Region",
-      "region": "Unassigned",
-      "responsibility": null,
-      "sourceUrl": null,
-      "lastVerified": null,
+      "region": "Peel",
+      "responsibility": "Region: Regional roads and bike lanes (2.5 cm/4 hrs, bare); lower tiers: local roads, most sidewalks",
+      "sourceUrl": "https://peelregion.ca/transportation-roads/road-maintenance/regular-road-servicing/road-service-maintenance-levels",
+      "lastVerified": "November 12, 2026",
+      "unverified": false,
       "levels": {
+        "arterial": {
+          "terminology": "Regional Roads (MMS Class 1–5)",
+          "salting": "Salters at start of storm; anti-icing",
+          "plowing": "≥ 2.5 cm",
+          "completion": "Back to ≤ 2.5 cm within 4 hrs after accumulation ends",
+          "surface": "Bare Pavement",
+          "mmsClass": "Yes",
+          "notes": "SWE: levels unchanged but slower",
+          "missing": {},
+          "secondaryFields": [],
+          "clock": "After accumulation ends",
+          "depth": [
+            2.5,
+            2.5
+          ]
+        },
+        "sidewalks": {
+          "terminology": "Sidewalks",
+          "salting": null,
+          "plowing": "≥ 8 cm",
+          "completion": "Reduce to ≤ 8 cm within 48 hrs",
+          "surface": null,
+          "mmsClass": "Yes",
+          "notes": "Local municipalities clear most sidewalks",
+          "missing": {
+            "salting": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "Not stated",
+          "depth": [
+            8,
+            8
+          ]
+        },
+        "cycling": {
+          "terminology": "Roadway designated bicycle lane",
+          "salting": null,
+          "plowing": "≥ 2.5 cm",
+          "completion": "Back to ≤ 2.5 cm within 8 hrs",
+          "surface": null,
+          "mmsClass": "Yes",
+          "notes": null,
+          "missing": {
+            "salting": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "Not stated",
+          "depth": [
+            2.5,
+            2.5
+          ]
+        },
+        "windrows": {
+          "terminology": null,
+          "salting": null,
+          "plowing": null,
+          "completion": null,
+          "surface": "Resident Responsibility",
+          "mmsClass": "No",
+          "notes": "Region \"tries to minimize\" snow in driveways",
+          "missing": {
+            "salting": "not-applicable",
+            "plowing": "not-applicable",
+            "completion": "not-applicable"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
+        },
         "expressway": null,
-        "arterial": null,
         "collector": null,
         "local": null,
-        "sidewalks": null,
-        "cycling": null,
-        "windrows": null,
         "busStops": null
       }
     },
@@ -1478,6 +2627,7 @@
       "responsibility": "City: local roads, select sidewalks incl. Regional-road sidewalks; residents: sidewalks (24 hrs), windrows",
       "sourceUrl": "https://www.pickering.ca/property-roads-safety/parking-roads-and-driveways/snow-removal-and-clearing/snow-clearing-process/",
       "lastVerified": "November 12, 2026",
+      "unverified": false,
       "levels": {
         "arterial": {
           "terminology": "Regional roads",
@@ -1487,7 +2637,15 @@
           "surface": null,
           "mmsClass": "No",
           "notes": "Maintained by Region",
-          "secondary": false
+          "missing": {
+            "salting": "not-listed",
+            "plowing": "not-listed",
+            "completion": "not-listed",
+            "surface": "not-listed"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "collector": {
           "terminology": "Priority Routes: Collector (Main) roads & bus routes",
@@ -1497,7 +2655,15 @@
           "surface": null,
           "mmsClass": "No",
           "notes": "13 urban + 2 rural routes",
-          "secondary": false
+          "missing": {
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "Not stated",
+          "depth": [
+            5,
+            5
+          ]
         },
         "local": {
           "terminology": "Local roads; rural gravel roads",
@@ -1507,7 +2673,15 @@
           "surface": null,
           "mmsClass": "No",
           "notes": "Some Seaton roads by developer",
-          "secondary": false
+          "missing": {
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "Not stated",
+          "depth": [
+            5,
+            5
+          ]
         },
         "sidewalks": {
           "terminology": "Main / Secondary / Hand Route sidewalks",
@@ -1517,7 +2691,14 @@
           "surface": null,
           "mmsClass": "No",
           "notes": "Residents clear within 24 hrs (By-law 6650/06); City clears sidewalks on Regional roads",
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "cycling": {
           "terminology": "Pathways/Walkways",
@@ -1527,7 +2708,15 @@
           "surface": null,
           "mmsClass": "No",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "windrows": {
           "terminology": null,
@@ -1537,7 +2726,14 @@
           "surface": "Resident Responsibility",
           "mmsClass": "No",
           "notes": "\"doesn't have the resources\"",
-          "secondary": false
+          "missing": {
+            "salting": "not-applicable",
+            "plowing": "not-applicable",
+            "completion": "not-applicable"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "busStops": {
           "terminology": null,
@@ -1547,7 +2743,15 @@
           "surface": null,
           "mmsClass": "No",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "expressway": null
       }
@@ -1558,6 +2762,7 @@
       "responsibility": "City: local roads, ~750 km sidewalks, universal windrows; Region: Regional roads",
       "sourceUrl": "https://www.richmondhill.ca/en/living-here/Snow-Removal.aspx",
       "lastVerified": "November 12, 2026",
+      "unverified": false,
       "levels": {
         "arterial": {
           "terminology": "Regional roads",
@@ -1567,7 +2772,15 @@
           "surface": null,
           "mmsClass": "No",
           "notes": "Maintained by York Region",
-          "secondary": false
+          "missing": {
+            "salting": "not-listed",
+            "plowing": "not-listed",
+            "completion": "not-listed",
+            "surface": "not-listed"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "collector": {
           "terminology": "Primary / Secondary roads",
@@ -1577,7 +2790,16 @@
           "surface": null,
           "mmsClass": "No",
           "notes": "10+ cm may trigger SWE",
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "After snowfall ends",
+          "depth": [
+            5,
+            5
+          ]
         },
         "local": {
           "terminology": "Local roads; cul-de-sacs, dead ends",
@@ -1587,7 +2809,16 @@
           "surface": null,
           "mmsClass": "No",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "After snowfall ends",
+          "depth": [
+            5,
+            5
+          ]
         },
         "sidewalks": {
           "terminology": "Sidewalks (~750 km)",
@@ -1597,7 +2828,16 @@
           "surface": null,
           "mmsClass": "No",
           "notes": "City clears all",
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "After snowfall ends",
+          "depth": [
+            5,
+            5
+          ]
         },
         "cycling": {
           "terminology": null,
@@ -1607,7 +2847,15 @@
           "surface": null,
           "mmsClass": "No",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "windrows": {
           "terminology": "City-wide windrow clearing",
@@ -1617,7 +2865,13 @@
           "surface": null,
           "mmsClass": "No",
           "notes": "Universal; excludes sidewalk-plow windrows",
-          "secondary": false
+          "missing": {
+            "salting": "not-applicable",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "Not stated",
+          "depth": null
         },
         "busStops": {
           "terminology": null,
@@ -1627,7 +2881,15 @@
           "surface": null,
           "mmsClass": "No",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "expressway": null
       }
@@ -1638,6 +2900,7 @@
       "responsibility": "Township: roads, select sidewalks; owners: sidewalks (24 hrs), windrows; Region: Regional roads",
       "sourceUrl": "https://www.scugog.ca/home-property-roads/roads-and-sidewalks/snowplowing-and-winter-operations/",
       "lastVerified": "November 12, 2026",
+      "unverified": false,
       "levels": {
         "arterial": {
           "terminology": "Priority 1: Arterial Roads and EMS Locations",
@@ -1647,7 +2910,16 @@
           "surface": null,
           "mmsClass": "No (MMS-style values)",
           "notes": "Clock starts at trigger depth",
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "From trigger depth",
+          "depth": [
+            8,
+            8
+          ]
         },
         "collector": {
           "terminology": "Priority 2: Class 4, Collector Roads & Bus Routes",
@@ -1657,7 +2929,16 @@
           "surface": null,
           "mmsClass": "No",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "From trigger depth",
+          "depth": [
+            8,
+            8
+          ]
         },
         "local": {
           "terminology": "Priority 3: Class 5 & 6 and Local Roads",
@@ -1667,7 +2948,16 @@
           "surface": null,
           "mmsClass": "No",
           "notes": "Full operation 8–12 hrs",
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "From trigger depth",
+          "depth": [
+            10,
+            10
+          ]
         },
         "sidewalks": {
           "terminology": "Select Township sidewalks",
@@ -1677,7 +2967,14 @@
           "surface": null,
           "mmsClass": "No",
           "notes": "Owners clear within 24 hrs",
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "Not stated",
+          "depth": null
         },
         "cycling": {
           "terminology": null,
@@ -1687,7 +2984,15 @@
           "surface": null,
           "mmsClass": "No",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "windrows": {
           "terminology": null,
@@ -1697,7 +3002,14 @@
           "surface": "Resident Responsibility",
           "mmsClass": "No",
           "notes": "No program found",
-          "secondary": false
+          "missing": {
+            "salting": "not-applicable",
+            "plowing": "not-applicable",
+            "completion": "not-applicable"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "busStops": {
           "terminology": null,
@@ -1707,7 +3019,15 @@
           "surface": null,
           "mmsClass": "No",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "expressway": null
       }
@@ -1718,6 +3038,7 @@
       "responsibility": "City: all roads incl. DVP/Gardiner, sidewalks, cycling, bus stops, windrows (eligible streets); MTO: 400-series",
       "sourceUrl": "https://www.toronto.ca/services-payments/streets-parking-transportation/road-maintenance/winter-maintenance/levels-of-snow-clearing-service/",
       "lastVerified": "November 12, 2026",
+      "unverified": false,
       "levels": {
         "expressway": {
           "terminology": "Expressways (DVP & Gardiner)",
@@ -1727,17 +3048,29 @@
           "surface": "Bare Pavement",
           "mmsClass": "No",
           "notes": "Multiple rounds may be needed; brine max 6 hrs",
-          "secondary": false
+          "missing": {},
+          "secondaryFields": [],
+          "clock": "Per operating round",
+          "depth": [
+            2.5,
+            2.5
+          ]
         },
         "arterial": {
           "terminology": "Arterials / \"Major roads, transit routes and streets with hills\"",
-          "salting": null,
-          "plowing": null,
-          "completion": null,
+          "salting": "Brine as required; salting when snow first accumulates (< 5 cm)",
+          "plowing": "5 cm",
+          "completion": "Salting 4 hrs; sources differ on plowing: 6 hrs (page), 6–8 hrs (summary table)",
           "surface": "Bare Pavement",
           "mmsClass": "No",
           "notes": null,
-          "secondary": false
+          "missing": {},
+          "secondaryFields": [],
+          "clock": "Per operating round",
+          "depth": [
+            5,
+            5
+          ]
         },
         "collector": {
           "terminology": "Collector",
@@ -1747,7 +3080,13 @@
           "surface": "Centre Bare",
           "mmsClass": "No",
           "notes": "Centre bare = 2.5 m cleared at centre",
-          "secondary": false
+          "missing": {},
+          "secondaryFields": [],
+          "clock": "Per operating round",
+          "depth": [
+            8,
+            8
+          ]
         },
         "local": {
           "terminology": "Local Roads / Residential streets; Laneways",
@@ -1757,7 +3096,13 @@
           "surface": "Safe & Passable / Snow Packed",
           "mmsClass": "No",
           "notes": "Laneways are the only explicit end-of-snowfall clock",
-          "secondary": false
+          "missing": {},
+          "secondaryFields": [],
+          "clock": "Per operating round",
+          "depth": [
+            8,
+            8
+          ]
         },
         "sidewalks": {
           "terminology": "Sidewalks (combined salting & plowing)",
@@ -1767,7 +3112,13 @@
           "surface": "Safe & Passable / Snow Packed",
           "mmsClass": "No",
           "notes": "City mechanically clears all sidewalks",
-          "secondary": false
+          "missing": {},
+          "secondaryFields": [],
+          "clock": "Per operating round",
+          "depth": [
+            2,
+            2
+          ]
         },
         "cycling": {
           "terminology": "All Cycling Infrastructure",
@@ -1777,7 +3128,13 @@
           "surface": "Safe & Passable / Bare Pavement",
           "mmsClass": "No",
           "notes": "2024 revision aligned on-road bike lanes with cycle tracks/MUPs",
-          "secondary": false
+          "missing": {},
+          "secondaryFields": [],
+          "clock": "Per operating round",
+          "depth": [
+            2,
+            2
+          ]
         },
         "windrows": {
           "terminology": "Driveway Windrow Openings",
@@ -1787,7 +3144,12 @@
           "surface": "Safe & Passable / Snow Packed",
           "mmsClass": "No",
           "notes": "Municipal service on eligible streets; 3 m opening",
-          "secondary": false
+          "missing": {
+            "salting": "not-applicable"
+          },
+          "secondaryFields": [],
+          "clock": "After road plowing",
+          "depth": null
         },
         "busStops": {
           "terminology": "Bus Stops & Pedestrian Crossovers",
@@ -1797,7 +3159,13 @@
           "surface": "Safe & Passable / Snow Packed",
           "mmsClass": "No",
           "notes": "Hand crews \"same as work area\"",
-          "secondary": false
+          "missing": {},
+          "secondaryFields": [],
+          "clock": "Per operating round",
+          "depth": [
+            2,
+            2
+          ]
         }
       }
     },
@@ -1807,6 +3175,7 @@
       "responsibility": null,
       "sourceUrl": null,
       "lastVerified": "November 12, 2026",
+      "unverified": true,
       "levels": {
         "expressway": null,
         "arterial": null,
@@ -1824,6 +3193,7 @@
       "responsibility": "City: local roads, all sidewalks, universal windrows; Region: Regional roads",
       "sourceUrl": "https://www.vaughan.ca/residential/roads-and-traffic/roads/winter-maintenance/snow-removal",
       "lastVerified": "November 12, 2026",
+      "unverified": false,
       "levels": {
         "arterial": {
           "terminology": "Regional roads",
@@ -1833,17 +3203,34 @@
           "surface": null,
           "mmsClass": "No",
           "notes": "Maintained by York Region",
-          "secondary": false
+          "missing": {
+            "salting": "not-listed",
+            "plowing": "not-listed",
+            "completion": "not-listed",
+            "surface": "not-listed"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "collector": {
           "terminology": "Main roads",
           "salting": null,
-          "plowing": null,
-          "completion": null,
+          "plowing": "5 cm",
+          "completion": "Sources differ: 4 hrs after snowfall ends (page), 16 hrs for all roads (news releases)",
           "surface": null,
           "mmsClass": "No",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "After snowfall ends",
+          "depth": [
+            5,
+            5
+          ]
         },
         "local": {
           "terminology": "Residential roads",
@@ -1853,7 +3240,16 @@
           "surface": null,
           "mmsClass": "No",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "After snowfall ends",
+          "depth": [
+            5,
+            5
+          ]
         },
         "sidewalks": {
           "terminology": "Main road / residential sidewalks",
@@ -1863,7 +3259,17 @@
           "surface": null,
           "mmsClass": "No",
           "notes": "City clears both",
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": [
+            5,
+            5
+          ]
         },
         "cycling": {
           "terminology": null,
@@ -1873,7 +3279,15 @@
           "surface": null,
           "mmsClass": "No",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "windrows": {
           "terminology": "Windrow-clearing service",
@@ -1883,7 +3297,13 @@
           "surface": null,
           "mmsClass": "No",
           "notes": "Universal service",
-          "secondary": false
+          "missing": {
+            "salting": "not-applicable",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "After road plowing",
+          "depth": null
         },
         "busStops": {
           "terminology": null,
@@ -1893,7 +3313,15 @@
           "surface": null,
           "mmsClass": "No",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "expressway": null
       }
@@ -1904,6 +3332,7 @@
       "responsibility": "Town: Class 2–6 roads; Region: Class 1; residents: sidewalks (24 hrs); free seniors windrows",
       "sourceUrl": "https://www.whitby.ca/services-and-payments/parking-roads-and-transportation/snow-clearing/",
       "lastVerified": "November 12, 2026",
+      "unverified": false,
       "levels": {
         "arterial": {
           "terminology": "Class 1 (Regional Roads)",
@@ -1913,7 +3342,16 @@
           "surface": null,
           "mmsClass": "Yes (MMS table)",
           "notes": "Maintained by Region",
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "Not stated",
+          "depth": [
+            2.5,
+            2.5
+          ]
         },
         "collector": {
           "terminology": "Primary (Class 2) / Secondary (Class 3–4)",
@@ -1923,7 +3361,15 @@
           "surface": null,
           "mmsClass": "Yes",
           "notes": "Clock basis not stated",
-          "secondary": false
+          "missing": {
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "Not stated",
+          "depth": [
+            5,
+            8
+          ]
         },
         "local": {
           "terminology": "Residential (Class 5–6)",
@@ -1933,7 +3379,16 @@
           "surface": null,
           "mmsClass": "Yes",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "Not stated",
+          "depth": [
+            10,
+            10
+          ]
         },
         "sidewalks": {
           "terminology": "Town sidewalks",
@@ -1943,7 +3398,14 @@
           "surface": null,
           "mmsClass": "Yes",
           "notes": "Residents clear within 24 hrs; Town may bill",
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "After road plowing",
+          "depth": null
         },
         "cycling": {
           "terminology": null,
@@ -1953,7 +3415,15 @@
           "surface": null,
           "mmsClass": "Yes",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "windrows": {
           "terminology": "Snow and windrow clearing (seniors/disability)",
@@ -1963,7 +3433,13 @@
           "surface": null,
           "mmsClass": "Yes",
           "notes": "Free; no able-bodied person under 65",
-          "secondary": false
+          "missing": {
+            "salting": "not-applicable",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "After snowfall ends",
+          "depth": null
         },
         "busStops": {
           "terminology": null,
@@ -1973,7 +3449,15 @@
           "surface": null,
           "mmsClass": "Yes",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "expressway": null
       }
@@ -1984,6 +3468,7 @@
       "responsibility": "Town: local roads, urban sidewalks, free seniors windrows; Region: Regional roads",
       "sourceUrl": "https://www.townofws.ca/live/roads-parking-and-traffic/winter-roads/snow-plowing/",
       "lastVerified": "November 12, 2026",
+      "unverified": false,
       "levels": {
         "arterial": {
           "terminology": "Arterial roads",
@@ -1993,7 +3478,16 @@
           "surface": null,
           "mmsClass": "No",
           "notes": "Regional arterials by York",
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "After snowfall ends",
+          "depth": [
+            5,
+            5
+          ]
         },
         "collector": {
           "terminology": "Collector roads",
@@ -2003,7 +3497,16 @@
           "surface": null,
           "mmsClass": "No",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "After snowfall ends",
+          "depth": [
+            5,
+            5
+          ]
         },
         "local": {
           "terminology": "Local roads",
@@ -2013,7 +3516,16 @@
           "surface": null,
           "mmsClass": "No",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "After snowfall ends",
+          "depth": [
+            5,
+            5
+          ]
         },
         "sidewalks": {
           "terminology": "All sidewalks (Stouffville, Ballantrae, Gormley)",
@@ -2023,7 +3535,15 @@
           "surface": null,
           "mmsClass": "No",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "After snowfall ends",
+          "depth": [
+            5,
+            5
+          ]
         },
         "cycling": {
           "terminology": null,
@@ -2033,7 +3553,15 @@
           "surface": null,
           "mmsClass": "No",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "windrows": {
           "terminology": "Seniors & physically challenged windrow clearing",
@@ -2043,7 +3571,16 @@
           "surface": null,
           "mmsClass": "No",
           "notes": "Free",
-          "secondary": true
+          "missing": {
+            "salting": "not-applicable",
+            "plowing": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [
+            "completion"
+          ],
+          "clock": "After road plowing",
+          "depth": null
         },
         "busStops": {
           "terminology": null,
@@ -2053,25 +3590,100 @@
           "surface": null,
           "mmsClass": "No",
           "notes": null,
-          "secondary": false
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
         },
         "expressway": null
       }
     },
     {
       "name": "York Region",
-      "region": "Unassigned",
-      "responsibility": null,
-      "sourceUrl": null,
-      "lastVerified": null,
+      "region": "York",
+      "responsibility": "Region: 4,400+ lane-km Regional roads, Regional bike lanes/MUPs; lower tiers: adjacent sidewalks",
+      "sourceUrl": "https://www.york.ca/transportation/roads/roads-operations",
+      "lastVerified": "November 12, 2026",
+      "unverified": false,
       "levels": {
+        "arterial": {
+          "terminology": "Regional Roads (4,400+ lane-km; 133 vehicles incl. 126 combination plow trucks and 7 brine trucks)",
+          "salting": "Brine pre-storm; salt/sand cycle ~90 min",
+          "plowing": null,
+          "completion": "One plow cycle ~120 min (not a completion standard)",
+          "surface": null,
+          "mmsClass": "No (council report: levels \"driven by compliance with minimum maintenance standards\")",
+          "notes": "24/7 operations",
+          "missing": {
+            "plowing": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": "Per operating round",
+          "depth": null
+        },
+        "sidewalks": {
+          "terminology": "Sidewalks adjacent to Regional roads",
+          "salting": null,
+          "plowing": null,
+          "completion": null,
+          "surface": null,
+          "mmsClass": "No",
+          "notes": "Lower-tier responsibility",
+          "missing": {
+            "salting": "not-listed",
+            "plowing": "not-listed",
+            "completion": "not-listed",
+            "surface": "not-listed"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
+        },
+        "cycling": {
+          "terminology": "Regional bike lanes, MUPs",
+          "salting": null,
+          "plowing": null,
+          "completion": null,
+          "surface": null,
+          "mmsClass": "No",
+          "notes": "160+ km bike lanes, 15 km MUPs cleared Jan 2026",
+          "missing": {
+            "salting": "not-published",
+            "plowing": "not-published",
+            "completion": "not-published",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
+        },
+        "windrows": {
+          "terminology": null,
+          "salting": null,
+          "plowing": null,
+          "completion": null,
+          "surface": null,
+          "mmsClass": "No",
+          "notes": "Refers to local programs",
+          "missing": {
+            "salting": "not-applicable",
+            "plowing": "not-applicable",
+            "completion": "not-applicable",
+            "surface": "not-published"
+          },
+          "secondaryFields": [],
+          "clock": null,
+          "depth": null
+        },
         "expressway": null,
-        "arterial": null,
         "collector": null,
         "local": null,
-        "sidewalks": null,
-        "cycling": null,
-        "windrows": null,
         "busStops": null
       }
     }

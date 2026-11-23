@@ -2,11 +2,12 @@
 // "Profiles" view. Only the 26 municipalities on the map are kept.
 //
 // Rules:
-// - NS / NF / — / N/A / DATA GAP and "NS (…)" cells become null (shown as n/a).
-// - A row whose notes mention a conflict between sources has its trigger and completion
-//   values set to null, and its notes set to null.
-// - Values with "[2°]" are kept but flagged as coming from a secondary source.
+// - NS / NF / — / N/A / DATA GAP and "NS (…)" cells become null, with the reason kept in `missing`.
+// - Rows where sources disagree are listed in DISPUTED: only the disputed values change, and each
+//   shows both figures with their sources. A new conflict with no entry stops the build.
+// - Values with "[2°]" are kept and listed in `secondaryFields`.
 
+import assert from "node:assert/strict";
 import { readdirSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 
@@ -41,9 +42,20 @@ const CATEGORY_LABELS: Record<CategoryKey, string> = {
 
 const NA_VALUES = new Set(["", "NS", "NF", "—", "-", "N/A", "DATA GAP"]);
 
+type MissingReason = "not-published" | "not-verified" | "not-applicable" | "not-listed" | "conflict";
+type LevelField = "salting" | "plowing" | "completion" | "surface" | "mmsClass";
+type ClockStart =
+  | "After snowfall ends"
+  | "After accumulation ends"
+  | "After road plowing"
+  | "From trigger depth"
+  | "Per operating round"
+  | "Not stated";
+
 interface Cell {
   text: string | null;
   secondary: boolean;
+  missing: MissingReason | null;
 }
 
 interface LevelOfService {
@@ -54,7 +66,14 @@ interface LevelOfService {
   surface: string | null;
   mmsClass: string | null;
   notes: string | null;
-  secondary: boolean;
+  /** Why a field is empty, using the dataset's own codes. */
+  missing: Partial<Record<LevelField, MissingReason>>;
+  /** Shown fields whose value comes from a news or directory source. */
+  secondaryFields: LevelField[];
+  /** When the completion clock starts. Null when no completion time is shown. */
+  clock: ClockStart | null;
+  /** Lowest and highest plowing depth published, in cm. Null when no depth is shown. */
+  depth: [number, number] | null;
 }
 
 interface MunicipalityProfile {
@@ -63,8 +82,90 @@ interface MunicipalityProfile {
   responsibility: string | null;
   sourceUrl: string | null;
   lastVerified: string | null;
+  /** The official page could not be found or verified, so no category has data. */
+  unverified: boolean;
   levels: Partial<Record<CategoryKey, LevelOfService | null>>;
 }
+
+function missingReason(text: string): MissingReason {
+  if (/^NF\b|DATA GAP/.test(text)) return "not-verified";
+  if (/^N\/A\b/.test(text)) return "not-applicable";
+  if (/^NS\b/.test(text)) return "not-published";
+  return "not-listed"; // Blank or a dash: the dataset's legend does not define these.
+}
+
+/**
+ * Values the dataset flags as disputed. A string replaces the value and names both figures;
+ * null holds it back because the dataset does not say what differs.
+ */
+const DISPUTED: Record<string, { fields: Partial<Record<LevelField, string | null>>; notes?: string | null }> = {
+  "Toronto|arterial": {
+    fields: { completion: "Salting 4 hrs; sources differ on plowing: 6 hrs (page), 6–8 hrs (summary table)" },
+    notes: null,
+  },
+  "Mississauga|collector": {
+    fields: {
+      salting: "Sources differ: older text gives 2 cm for select collectors, 5 cm for local collectors",
+      plowing: "Sources differ: 5 cm (current), 2 cm for select collectors (older text)",
+    },
+    notes: null,
+  },
+  "Vaughan|collector": {
+    fields: { completion: "Sources differ: 4 hrs after snowfall ends (page), 16 hrs for all roads (news releases)" },
+    notes: null,
+  },
+  "King|collector": {
+    fields: { completion: "Sources differ: 16 hrs after snowfall ends (page), 12 hrs (2025 flyer)" },
+    notes: null,
+  },
+  "King|local": { fields: { completion: "Sources differ: 12 hrs, 16 hrs (sources not named)" } },
+  "East Gwillimbury|local": { fields: { plowing: "Sources differ: 8 cm (page), 10 cm (older guide)" }, notes: null },
+  "Burlington|sidewalks": {
+    fields: { completion: "Sources differ: within 48 hrs after end of snowfall (aim), up to 72 hrs after snowfall ends (same page)" },
+  },
+  "Aurora|windrows": { fields: { plowing: null, completion: null }, notes: "65+/disability" },
+};
+const usedDisputes = new Set<string>();
+
+// Key Finding 2 of the dataset names the clock each municipality uses for its roads.
+const SNOWFALL_CLOCK = new Set([
+  "Mississauga", "Brampton", "Oakville", "Milton", "Halton Hills", "Vaughan", "Richmond Hill",
+  "Newmarket", "Whitchurch-Stouffville", "Hamilton", "Oshawa",
+]);
+const ROAD_KEYS = new Set<CategoryKey>(["expressway", "arterial", "collector", "local"]);
+
+/** The cell's own wording wins; otherwise roads fall back to the municipality's clock from Key Finding 2. */
+function clockStart(name: string, key: CategoryKey, completion: string): ClockStart {
+  if (/after (?:final |roads?\b|plow|primary)|adjacent roadway/i.test(completion)) return "After road plowing";
+  if (name === "Toronto" || /per round|plow cycle/i.test(completion)) return "Per operating round";
+  if (/from (?:when snow reaches|\d)/i.test(completion)) return "From trigger depth";
+  if (/after accumulation/i.test(completion)) return "After accumulation ends";
+  if (/after (?:end of|snow|storm|winter event|significant|event)|following (?:an? |winter )?events?/i.test(completion)) {
+    return "After snowfall ends";
+  }
+  if (ROAD_KEYS.has(key) && SNOWFALL_CLOCK.has(name)) return "After snowfall ends";
+  if (ROAD_KEYS.has(key) && name === "Scugog") return "From trigger depth";
+  return "Not stated";
+}
+
+/** Every depth in a plowing value, as [lowest, highest]: "5 cm / 8 cm" → [5, 8]. */
+function depthRange(text: string): [number, number] | null {
+  const depths = [...text.matchAll(/(\d+(?:\.\d+)?)(?:\s*[–-]\s*(\d+(?:\.\d+)?))?\s*cm/g)].flatMap((m) =>
+    m[2] ? [Number(m[1]), Number(m[2])] : [Number(m[1])],
+  );
+  return depths.length ? [Math.min(...depths), Math.max(...depths)] : null;
+}
+
+// Self-check on real wording from the dataset; a wrong rule stops the build.
+assert.equal(clockStart("Toronto", "local", "Salting 8 hrs; plowing 14 hrs; laneways 24 hrs from end of snowfall"), "Per operating round");
+assert.equal(clockStart("Milton", "arterial", "All roads 24 hrs after end of snowfall"), "After snowfall ends");
+assert.equal(clockStart("Milton", "collector", "24 hrs"), "After snowfall ends");
+assert.equal(clockStart("Mississauga", "sidewalks", "Priority 12–24 hrs"), "Not stated");
+assert.equal(clockStart("Markham", "windrows", "Within 4 hrs after road plowed"), "After road plowing");
+assert.equal(clockStart("Scugog", "local", "24 hrs from 10 cm"), "From trigger depth");
+assert.deepEqual(depthRange("Dispatch > 5 cm; Cl. 1 2.5 cm / Cl. 2 5 cm"), [2.5, 5]);
+assert.deepEqual(depthRange("8 cm (3–8 cm per map)"), [3, 8]);
+assert.equal(depthRange("Plowed continuously"), null);
 
 function clean(raw: string | undefined): Cell {
   const v = (raw ?? "").trim();
@@ -75,7 +176,7 @@ function clean(raw: string | undefined): Cell {
     .replace(/\s+/g, " ")
     .trim();
   const isNA = NA_VALUES.has(text) || /^(NS|NF|N\/A)\b/.test(text);
-  return { text: isNA ? null : text, secondary };
+  return { text: isNA ? null : text, secondary, missing: isNA ? missingReason(text) : null };
 }
 
 function tableRows(lines: string[], heading: string): string[][] {
@@ -101,7 +202,8 @@ const lines = readFileSync(path.join(LOS_DIR, mdFile), "utf8").replace(/\r/g, ""
 const mapData = JSON.parse(readFileSync(MAP_DATA, "utf8")) as { records: { name: string }[] };
 const dashboardNames = [...new Set(mapData.records.map((r) => r.name))].sort();
 
-const normalise = (name: string) => name.replace(/^City of /, "").trim();
+// The dataset says "Region of Peel"; the rest of the site says "Peel Region".
+const normalise = (name: string) => name.replace(/^City of /, "").replace(/^Region of (.+)$/, "$1 Region").trim();
 
 // Tab 2: source directory (one row per municipality).
 const directory = new Map<string, { region: string; url: string | null; lastVerified: string | null; responsibility: string | null }>();
@@ -120,12 +222,12 @@ for (const cells of tableRows(lines, "## Tab 2")) {
 
 // Tab 1: levels of service (one row per municipality and category).
 const levels = new Map<string, Partial<Record<CategoryKey, LevelOfService | null>>>();
+const unverified = new Set<string>();
 for (const cells of tableRows(lines, "## Tab 1")) {
   const pad = (i: number) => cells[i] ?? "";
   const municipality = normalise(pad(1));
   const categoryLabel = pad(2);
   const notesRaw = pad(9);
-  const conflict = /conflict/i.test(notesRaw);
 
   const salting = clean(pad(4));
   const plowing = clean(pad(5));
@@ -135,29 +237,45 @@ for (const cells of tableRows(lines, "## Tab 1")) {
   const mms = clean(pad(8));
   const notes = clean(notesRaw);
 
-  // Cells that quote two different values ("X vs Y") are treated as conflicts.
-  const vs = [pad(4), pad(5), pad(6)].some((c) => /\svs\s/i.test(c));
-  const drop = conflict || vs;
-
   const key = CATEGORY_MAP[categoryLabel];
   const map = levels.get(municipality) ?? {};
   if (key) {
+    const disputeKey = `${municipality}|${key}`;
+    const dispute = DISPUTED[disputeKey];
+    const flagged = /conflict/i.test(notesRaw) || [pad(4), pad(5), pad(6)].some((c) => /conflict|\svs\s/i.test(c));
+    if (flagged && !dispute) throw new Error(`Source conflict in ${disputeKey} has no DISPUTED entry`);
+    if (dispute) usedDisputes.add(disputeKey);
+    const fields: Record<LevelField, Cell> = { salting, plowing, completion, surface, mmsClass: mms };
+    const shown = {} as Record<LevelField, string | null>;
+    const missing: LevelOfService["missing"] = {};
+    const secondaryFields: LevelField[] = [];
+    for (const field of Object.keys(fields) as LevelField[]) {
+      const cell = fields[field];
+      const override = dispute?.fields[field];
+      shown[field] = override === undefined ? cell.text : override;
+      const reason = override === null ? "conflict" : override ? null : cell.missing;
+      if (reason) missing[field] = reason;
+      if (cell.secondary && shown[field]) secondaryFields.push(field);
+    }
     map[key] = {
       terminology: terminology.text,
-      salting: drop ? null : salting.text,
-      plowing: drop ? null : plowing.text,
-      completion: drop ? null : completion.text,
-      surface: surface.text,
-      mmsClass: mms.text,
-      notes: conflict ? null : notes.text,
-      secondary: [salting, plowing, completion, surface, notes].some((c) => c.secondary),
+      ...shown,
+      notes: dispute && "notes" in dispute ? dispute.notes! : notes.text,
+      missing,
+      secondaryFields,
+      clock: shown.completion ? clockStart(municipality, key, shown.completion) : null,
+      // Windrow figures are snow heights for clearing driveways, not plowing triggers.
+      depth: shown.plowing && key !== "windrows" ? depthRange(shown.plowing) : null,
     };
   } else if (categoryLabel === "All 8 categories") {
-    // Uxbridge: the page could not be retrieved, so every category is unavailable.
+    // Uxbridge and Brock: the page could not be verified, so every category is unavailable.
     for (const k of CATEGORY_ORDER) map[k] = null;
+    unverified.add(municipality);
   }
   levels.set(municipality, map);
 }
+
+for (const key of Object.keys(DISPUTED)) assert(usedDisputes.has(key), `DISPUTED entry ${key} matches no dataset row`);
 
 const profiles: MunicipalityProfile[] = [];
 for (const name of dashboardNames) {
@@ -171,6 +289,7 @@ for (const name of dashboardNames) {
     responsibility: dir?.responsibility ?? null,
     sourceUrl: dir?.url ?? null,
     lastVerified: dir?.lastVerified ?? null,
+    unverified: unverified.has(name),
     levels: lv,
   });
 }

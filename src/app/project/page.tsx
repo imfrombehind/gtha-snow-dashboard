@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import metricsJson from "@/data/municipal-metrics.json";
 import type { MetricsFile } from "@/lib/types";
 import { HEADLINE_YEAR } from "@/lib/insights";
-import { BODY, EYEBROW, HEADING, JUSTIFY, LIST, LEAD, PAGE, PAGE_HEADER, PAGE_TITLE } from "@/lib/typography";
+import { BODY, HEADING, LIST, LEAD, PAGE, PAGE_HEADER, PAGE_TITLE } from "@/lib/typography";
 import SiteHeader from "@/components/SiteHeader";
 import PageContents, { type ContentsGroup } from "@/components/PageContents";
 
@@ -12,18 +13,15 @@ const example = data.records.find((r) => r.munId === EXAMPLE_ID && r.year === HE
 const FIRST_YEAR = data.years[0]!;
 const LAST_YEAR = data.years.at(-1)!;
 
-/** "Aurora (2015, 2025), Brock (2025), …": municipality-years with no report, grouped by municipality. */
-const NOT_REPORTED = (() => {
-  const byName = new Map<string, number[]>();
-  for (const r of data.records.filter((r) => r.totalExpenses == null)) {
-    byName.set(r.name, [...(byName.get(r.name) ?? []), r.year]);
-  }
-  return [...byName.entries()]
-    .sort(([a], [b]) => a.localeCompare(b))
-    .map(([name, years]) => `${name} (${years.sort().join(", ")})`)
-    .join(", ");
-})();
-const NOT_REPORTED_COUNT = data.records.filter((r) => r.totalExpenses == null).length;
+/** The 26 mapped municipalities; the four Regions are outside the spending comparison. */
+const COVERAGE_RECORDS = data.records.filter((r) => r.tier !== "Upper-tier");
+const COVERAGE_ROWS = [...new Map(COVERAGE_RECORDS.map((r) => [r.munId, r.name])).entries()].sort(([, a], [, b]) =>
+  a.localeCompare(b),
+);
+const REPORTED = new Set(COVERAGE_RECORDS.filter((r) => r.totalExpenses != null).map((r) => `${r.munId}-${r.year}`));
+const NOT_REPORTED_COUNT = COVERAGE_RECORDS.length - REPORTED.size;
+/** Same hatch as "Not reported" on the map. */
+const HATCH = "repeating-linear-gradient(45deg, #88aecf 0 1.5px, #e3f2fc 1.5px 4px)";
 
 /** Section wrapper; the scroll margin keeps headings clear of the sticky site header when jumped to. */
 const SECTION = "flex scroll-mt-40 flex-col gap-4";
@@ -32,7 +30,10 @@ const SECTION = "flex scroll-mt-40 flex-col gap-4";
 const CONTENTS: ContentsGroup[] = [
   {
     items: [
+      { id: "before-you-compare", label: "Before you compare" },
       { id: "why-it-matters", label: "Why winter maintenance matters" },
+      { id: "limitations", label: "Limitations" },
+      { id: "data-coverage", label: "Data coverage" },
     ],
   },
   {
@@ -47,10 +48,7 @@ const CONTENTS: ContentsGroup[] = [
     ],
   },
   {
-    items: [
-      { id: "limitations", label: "Limitations" },
-      { id: "data-sources", label: "Data sources" },
-    ],
+    items: [{ id: "data-sources", label: "Data sources" }],
   },
 ];
 
@@ -84,25 +82,10 @@ function ExternalLink({ href, children }: { href: string; children: React.ReactN
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="w-fit text-sm text-ink underline underline-offset-2"
+      className="text-ink underline underline-offset-2"
     >
       {children}
-    </a>
-  );
-}
-
-/** "i" link to a source document, styled like the info buttons in the comparison table. */
-function InfoLink({ href, label }: { href: string; label: string }) {
-  return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={`Read more: ${label} (opens in a new tab)`}
-      title={`Read more: ${label}`}
-      className="relative -top-px ml-1.5 inline-flex h-4 w-4 items-center justify-center rounded-full border border-ink-3 align-middle text-[10px] font-semibold leading-none text-ink-2 no-underline hover:border-ink hover:text-ink"
-    >
-      i
+      <span className="sr-only"> (opens in a new tab)</span>
     </a>
   );
 }
@@ -128,6 +111,58 @@ function Step({ label, basis, value, strong }: { label: React.ReactNode; basis: 
   );
 }
 
+/** Which municipalities reported in which years, with a count per year. */
+function CoverageGrid() {
+  return (
+    <div className="flex flex-col gap-3">
+      <div className="flex flex-wrap gap-x-5 gap-y-1 text-xs text-ink-2" aria-hidden="true">
+        <span className="flex items-center gap-1.5"><span className="h-3 w-3 bg-seq-3" />Reported</span>
+        <span className="flex items-center gap-1.5"><span className="h-3 w-3" style={{ background: HATCH }} />Not reported</span>
+      </div>
+      <div className="overflow-x-auto">
+        <table className="w-full border-separate border-spacing-0.5 text-xs tabular-nums">
+          <caption className="sr-only">Financial reports by municipality and year, {FIRST_YEAR} to {LAST_YEAR}</caption>
+          <thead>
+            <tr>
+              <th scope="col" className="pr-3 text-left font-medium text-ink-3 sm:w-44">Municipality</th>
+              {data.years.map((y) => (
+                <th key={y} scope="col" aria-label={String(y)} className="min-w-3 text-center text-[10px] font-medium text-ink-3 sm:min-w-4">
+                  {String(y).slice(2)}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {COVERAGE_ROWS.map(([id, name]) => (
+              <tr key={id}>
+                <th scope="row" className="whitespace-nowrap pr-3 text-left font-normal text-ink-2">{name}</th>
+                {data.years.map((y) => {
+                  const ok = REPORTED.has(`${id}-${y}`);
+                  return (
+                    <td key={y} className={`h-4 p-0 ${ok ? "bg-seq-3" : ""}`} style={ok ? undefined : { background: HATCH }}>
+                      <span className="sr-only">{ok ? "Reported" : "Not reported"}</span>
+                    </td>
+                  );
+                })}
+              </tr>
+            ))}
+          </tbody>
+          <tfoot>
+            <tr>
+              <th scope="row" className="pr-3 pt-1 text-left font-semibold text-ink">Reporting</th>
+              {data.years.map((y) => (
+                <td key={y} className="pt-1 text-center text-[10px] font-semibold text-ink">
+                  {COVERAGE_ROWS.filter(([id]) => REPORTED.has(`${id}-${y}`)).length}
+                </td>
+              ))}
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  );
+}
+
 export default function ProjectPage() {
   return (
     <>
@@ -136,26 +171,48 @@ export default function ProjectPage() {
     <PageContents groups={CONTENTS} />
     <main className={`${PAGE} lg:mx-0`}>
       <header className={PAGE_HEADER}>
-        <p className={EYEBROW}>GTHA Winter Maintenance</p>
         <h1 className={PAGE_TITLE}>Project overview</h1>
-        <p className={`${LEAD} ${JUSTIFY}`}>
+        <p className={LEAD}>
           This interactive dashboard compares winter road maintenance spending across all 26 municipalities, using publicly
           available financial, geographic and demographic data, so we can see where the money goes and what might explain
           the gaps. This page explains why that spending matters, where each figure comes from and how it is calculated.
         </p>
       </header>
 
+      <section id="before-you-compare" className={`${SECTION} border border-line bg-panel p-5 sm:p-6`}>
+        <h2 className="text-xl font-semibold sm:text-2xl">Before you compare</h2>
+        <p className={BODY}>Four things change how a comparison should be read.</p>
+        <dl className="flex flex-col divide-y divide-line border-y border-line text-base">
+          <Formula name="Regional spending is excluded">
+            Lower-tier figures cover local roads only, so compare them with Toronto and Hamilton with care.
+          </Formula>
+          <Formula name="Road length can overcount">
+            It can include regional and provincial roads, so spending per km for lower-tier municipalities may read low.
+          </Formula>
+          <Formula name="Dollars are not inflation-adjusted">
+            Part of any change since 2016 reflects rising prices for labour, fuel, salt and contracts.
+          </Formula>
+          <Formula name="Some years are unusual">
+            Toronto’s 2019 figure includes a one-time transfer, and its low 2020 figure reflects accounting adjustments.
+          </Formula>
+        </dl>
+        <p className="flex flex-wrap gap-x-5 gap-y-2 text-base font-medium text-ink">
+          <Link href="/" className="underline underline-offset-2">Open the dashboard</Link>
+          <a href="#limitations" className="underline underline-offset-2">Read all limitations</a>
+        </p>
+      </section>
+
       <section id="why-it-matters" className={SECTION}>
         <h2 className={HEADING}>Why winter maintenance matters</h2>
-        <p className={`${BODY} ${JUSTIFY}`}>
+        <p className={BODY}>
           Winter maintenance is one of the most visible things a municipality does. When a storm hits, residents ask one
           question: can I get where I need to go safely?
         </p>
-        <p className={`${BODY} ${JUSTIFY}`}>
+        <p className={BODY}>
           The GTHA is home to millions of people, and a single storm can close schools, delay emergency responders and hold
           up the trucks that move goods.
         </p>
-        <aside className="flex flex-col gap-3 bg-ink p-5 text-justify hyphens-auto text-lg font-semibold leading-snug text-white">
+        <aside className="flex flex-col gap-3 bg-ink p-5 text-lg font-semibold leading-snug text-white">
           <p>
             <em>"We need to do more, we need to do better," said Toronto Mayor Olivia Chow in February 2025 after a snowstorm
             left the city's response under scrutiny. "All Torontonians deserve to move around the city safely."</em>
@@ -169,20 +226,105 @@ export default function ProjectPage() {
             Source: Global News, February 25, 2025
           </a>
         </aside>
-        <p className={`${BODY} ${JUSTIFY}`}>
+        <p className={BODY}>
           Winter services are paid for from municipal budgets. After that storm, Chow called for a full review of the city's
           winter maintenance contracts.
         </p>
-        <p className={`${BODY} ${JUSTIFY}`}>
+        <p className={BODY}>
           We built this dashboard to compare spending, population and snowfall across all 26 municipalities. It is a
           starting point for questions, and we do not rank municipalities by performance.
         </p>
       </section>
 
-      <p className="-mb-6 text-xs font-medium uppercase tracking-wide text-ink-3">How we built the dashboard</p>
+      <section id="limitations" className={SECTION}>
+        <h2 className={HEADING}>Limitations</h2>
+        <p className={BODY}>
+          We built this dashboard as an exploratory and benchmarking resource, not a definitive ranking of municipal
+          efficiency or performance. While provincial financial reports provide a consistent reporting framework, there
+          are important limitations in the supporting datasets.
+        </p>
+        <ol className="flex flex-col gap-6 text-base leading-relaxed text-ink-2">
+          <li className="flex flex-col gap-2">
+            <span className="font-medium text-ink">1. Population data come from two census years only.</span>
+            <span>
+              Only 2016 and 2021 are actual census counts. We use the 2016 count for 2015 to 2020 and the 2021 count from
+              2021 onward, so the figures do not capture growth between censuses or since 2021.
+            </span>
+          </li>
+          <li className="flex flex-col gap-2">
+            <span className="font-medium text-ink">2. Financial data are not complete for every year.</span>
+            <span>
+              Some municipalities did not report for certain years, including the most recent ones. As a result, the
+              number of municipalities represented varies by year, and {LAST_YEAR} has the fewest.
+            </span>
+          </li>
+          <li className="flex flex-col gap-2">
+            <span className="font-medium text-ink">3. Regional spending is not included.</span>
+            <span>
+              Toronto and Hamilton pay for winter maintenance on all their roads. In Durham, Halton, Peel and York, the
+              Regions pay for regional roads from separate budgets that are not in this dataset. Figures for lower-tier
+              municipalities cover only part of the winter maintenance in their area, so compare them with Toronto and
+              Hamilton with care.
+            </span>
+            <span>
+              Road length has the opposite issue: it can include regional and provincial roads (see section 5), while
+              spending covers local roads only. Spending per km for lower-tier municipalities may therefore read low.
+            </span>
+          </li>
+          <li className="flex flex-col gap-2">
+            <span className="font-medium text-ink">4. Municipalities do not all deliver winter maintenance in the same way.</span>
+            <span>
+              Winter maintenance may be divided between regional and local governments. Some municipalities primarily use
+              in-house crews, while others rely more heavily on contractors.
+            </span>
+            <span>
+              Differences in service levels, road characteristics, operating models and financial reporting can all
+              influence reported expenditures.
+            </span>
+          </li>
+          <li className="flex flex-col gap-2">
+            <span className="font-medium text-ink">5. Figures are in nominal dollars.</span>
+            <span>
+              Spending is not adjusted for inflation. Part of any change since 2016 reflects rising prices for labour, fuel,
+              salt and contracts, not only changes in service.
+            </span>
+          </li>
+          <li className="flex flex-col gap-2">
+            <span className="font-medium text-ink">6. Some years are unusual.</span>
+            <span>
+              Toronto’s 2019 figure includes a one-time transfer, and 2022 was a high-cost year. Toronto’s low 2020 figure
+              reflects accounting adjustments, not a cheap winter.
+            </span>
+          </li>
+          <li className="flex flex-col gap-2">
+            <span className="font-medium text-ink">7. Snowfall figures are estimates.</span>
+            <span>
+              Snowfall moves almost identically across municipalities from year to year, so it likely comes from a model.
+              It is useful for broad comparisons, not for explaining one municipality’s spending in one year.
+            </span>
+          </li>
+        </ol>
+        <p className={BODY}>
+          For these reasons, a municipality with higher spending per resident is not necessarily less efficient, just as
+          lower spending does not necessarily indicate better performance. Spending differences reflect service levels,
+          road networks and contracts, not just snowfall. We built the dashboard to identify patterns, raise questions
+          and support further investigation, rather than draw conclusions from any single measure.
+        </p>
+      </section>
+
+      <section id="data-coverage" className={SECTION}>
+        <h2 className={HEADING}>Data coverage</h2>
+        <p className={BODY}>
+          Each row is a municipality and each column a year. Of {COVERAGE_RECORDS.length} municipality-years, {REPORTED.size}{" "}
+          were reported. The other {NOT_REPORTED_COUNT} show as “No data” on the dashboard and are left out of the calculations.
+        </p>
+        <CoverageGrid />
+      </section>
+
+      <h2 className="-mb-6 border-t-2 border-ink pt-6 text-2xl font-semibold sm:text-3xl">How we built the dashboard</h2>
 
       <section id="study-area" className={SECTION}>
-        <h2 className={HEADING}>1. Study area</h2>
+        <h3 className="text-xl font-semibold sm:text-2xl">1. Study area</h3>
         <p className={BODY}>
           The study area is the Greater Toronto and Hamilton Area (GTHA), the region of southern Ontario around Toronto
           and Hamilton. The unit of analysis is the municipality: an incorporated local government with its own council,
@@ -207,15 +349,22 @@ export default function ProjectPage() {
         <p className={BODY}>
           Each tier has its own winter maintenance responsibilities and budget. The dashboard uses single-tier and
           lower-tier spending only. The four Regions pay for winter maintenance on regional roads from their own budgets,
-          and that spending is not included, so figures for Durham, Halton, Peel and York cover local roads only.
-          Municipal boundary data define the study area and draw the map.
+          and that spending is not included, so figures for Durham, Halton, Peel and York cover local roads only.{" "}
+          <ExternalLink href="https://www12.statcan.gc.ca/census-recensement/2021/geo/sip-pis/boundary-limites/index2021-eng.cfm?year=21">
+            Municipal boundary data
+          </ExternalLink>{" "}
+          define the study area and draw the map.
         </p>
       </section>
 
       <section id="spending" className={SECTION}>
-        <h2 className={HEADING}>2. Winter maintenance spending</h2>
+        <h3 className={HEADING}>2. Winter maintenance spending</h3>
         <p className={BODY}>
-          Spending comes from Ontario’s provincial Financial Information Return (FIR), the standard annual report every
+          Spending comes from Ontario’s provincial{" "}
+          <ExternalLink href="https://efis.fma.csc.gov.on.ca/fir/index.php/en/reports-and-dashboards/fir-by-year-and-municipality/">
+            Financial Information Return (FIR)
+          </ExternalLink>
+          , the standard annual report every
           municipality files. The dashboard covers {FIRST_YEAR} to {LAST_YEAR}.
         </p>
         <p className={BODY}>
@@ -237,12 +386,13 @@ export default function ProjectPage() {
           </li>
         </ul>
         <p className={BODY}>
-          Total winter cost is item 0621 plus item 0622. When item 0622 is zero, we read it as sidewalk and parking lot
-          costs reported together with roads and show “Included in roads”. A zero can also mean the municipality does not
-          pay for sidewalk clearing, so treat the roads and sidewalks split in those years with care.
+          Total winter cost is item 0621 plus item 0622. When item 0622 is zero, we show “None reported separately”. The
+          costs may be included with roads, or the municipality may not pay for sidewalk clearing, so treat the roads and
+          sidewalks split in those years with care.
         </p>
         <p className={BODY}>
-          The reports have gaps. {NOT_REPORTED_COUNT} municipality-years were not reported: {NOT_REPORTED}. These show as
+          The reports have gaps. {NOT_REPORTED_COUNT} municipality-years were not reported (see{" "}
+          <a href="#data-coverage" className="text-ink underline underline-offset-2">Data coverage</a>). These show as
           “No data” and are left out of the calculations. {HEADLINE_YEAR} is the latest year with data for 25 of the 26 municipalities, so the map
           opens on {HEADLINE_YEAR}. The reports also do not split spending into labour, equipment, materials or
           contractors, so they cannot explain what drives a municipality’s total.
@@ -250,13 +400,14 @@ export default function ProjectPage() {
       </section>
 
       <section id="population-and-snowfall" className={SECTION}>
-        <h2 className={HEADING}>3. Population and snowfall</h2>
+        <h3 className={HEADING}>3. Population and snowfall</h3>
         <ul className={LIST}>
           <li>
-            <span className="font-medium text-ink">Population:</span> Statistics Canada Census counts for 2016 and 2021.
-            We use the 2016 count for 2015 and 2016, the 2021 count for 2021 onward, and a straight line between the two
-            for 2017 to 2020. Only the two census years are actual counts, so per-resident figures for every other year are
-            estimates.
+            <span className="font-medium text-ink">Population:</span> Statistics Canada Census counts for{" "}
+            <ExternalLink href="https://www12.statcan.gc.ca/census-recensement/2016/dp-pd/prof/index.cfm?Lang=E">2016</ExternalLink>{" "}
+            and <ExternalLink href="https://open.canada.ca/data/en/dataset/750e6035-adf8-4426-966f-4c25b12a999e">2021</ExternalLink>.
+            We use the 2016 count for 2015 to 2020 and the 2021 count for 2021 onward. Only the two census years are actual
+            counts, so per-resident figures for every other year are estimates.
           </li>
           <li>
             <span className="font-medium text-ink">Snowfall:</span> the annual average median snowfall in millimetres for
@@ -267,13 +418,13 @@ export default function ProjectPage() {
       </section>
 
       <section id="levels-of-service" className={SECTION}>
-        <h2 className={HEADING}>4. Levels of service</h2>
+        <h3 className={HEADING}>4. Levels of service</h3>
         <p className={BODY}>
-          Ontario sets the minimum requirements for road maintenance in the Minimum Maintenance Standards for Municipal
-          Highways (MMS)<InfoLink
-            href="https://www.ontario.ca/laws/regulation/020239"
-            label="Minimum Maintenance Standards for Municipal Highways"
-          />. Each municipality then sets its own standards,
+          Ontario sets the minimum requirements for road maintenance in the{" "}
+          <ExternalLink href="https://www.ontario.ca/laws/regulation/020239">
+            Minimum Maintenance Standards for Municipal Highways (MMS)
+          </ExternalLink>
+          . Each municipality then sets its own standards,
           which can go beyond the minimum, so spending depends on the service each one chooses to provide. We reviewed the
           official websites of all 26 municipalities for winter maintenance policies, service standards and descriptions
           of operations. We looked at:
@@ -292,14 +443,18 @@ export default function ProjectPage() {
       </section>
 
       <section id="road-network" className={SECTION}>
-        <h2 className={HEADING}>5. Estimating road network length</h2>
+        <h3 className={HEADING}>5. Estimating road network length</h3>
         <p className={BODY}>
           Comparing spending across municipalities of different sizes means knowing how many kilometres of road each one
           has. We first tried using road data published by the municipalities themselves, but we couldn’t find consistent,
           comparable figures for all 26.
         </p>
         <p className={BODY}>
-          Instead, we used the 2019 version of the Ontario Road Network (ORN), a province-wide dataset from the Government
+          Instead, we used the 2019 version of the{" "}
+          <ExternalLink href="https://geohub.lio.gov.on.ca/datasets/mnrf::ontario-road-network-orn-road-net-element/about">
+            Ontario Road Network (ORN)
+          </ExternalLink>
+          , a province-wide dataset from the Government
           of Ontario. One common source gave us comparable estimates across the study area.
         </p>
         <p className={BODY}>
@@ -310,18 +465,18 @@ export default function ProjectPage() {
       </section>
 
       <section id="calculating-the-measures" className={SECTION}>
-        <h2 className={HEADING}>6. Calculating the measures</h2>
+        <h3 className={HEADING}>6. Calculating the measures</h3>
         <p className={BODY}>
           We list every number on the dashboard below. We calculate each one for a single municipality and year, and we
           combine those results for areas. Missing values show as "No data" and are left out of every calculation.        </p>
-        <h3 className="text-base font-semibold text-ink">Municipality indicators</h3>
+        <h4 className="font-serif text-base font-semibold text-ink">Municipality indicators</h4>
         <dl className="flex flex-col divide-y divide-line text-base">
           <Formula name="Total winter spending">
             Item 0621 (roads) plus item 0622 (sidewalks and parking lots), both before adjustments. Shown in dollars.
           </Formula>
           <Formula name="Winter spending per resident">
-            Total winter spending ÷ population for that year. Population is the 2016 Census count up to 2016, the 2021
-            Census count from 2021, and interpolated in between (see section 3).
+            Total winter spending ÷ population for that year. Population is the 2016 Census count for 2015 to 2020 and the
+            2021 Census count from 2021 onward (see section 3).
           </Formula>
           <Formula name="Winter spending per km of road">
             Total winter spending ÷ road length in km (Ontario Road Network, see section 5). Shown in dollars per km.
@@ -340,7 +495,7 @@ export default function ProjectPage() {
             Annual average median snowfall in millimetres, 2015 to 2025. Reported as it appears in the snowfall data.
           </Formula>
         </dl>
-        <h3 className="text-base font-semibold text-ink">Area and GTHA indicators</h3>
+        <h4 className="font-serif text-base font-semibold text-ink">Area and GTHA indicators</h4>
         <dl className="flex flex-col divide-y divide-line text-base">
           <Formula name="Area spending per resident">
             Total winter spending of the reporting municipalities ÷ their combined population that year. Area figures are
@@ -406,81 +561,6 @@ export default function ProjectPage() {
         </details>
       </section>
 
-      <section id="limitations" className={SECTION}>
-        <h2 className={HEADING}>Limitations</h2>
-        <p className={BODY}>
-          We built this dashboard as an exploratory and benchmarking resource, not a definitive ranking of municipal
-          efficiency or performance. While provincial financial reports provide a consistent reporting framework, there
-          are important limitations in the supporting datasets.
-        </p>
-        <ol className="flex flex-col gap-6 text-base leading-relaxed text-ink-2">
-          <li className="flex flex-col gap-2">
-            <span className="font-medium text-ink">1. Population data come from two census years only.</span>
-            <span>
-              Only 2016 and 2021 are actual census counts. The years in between are interpolated, and the years after 2021
-              use the 2021 count, so they do not capture growth since then.
-            </span>
-          </li>
-          <li className="flex flex-col gap-2">
-            <span className="font-medium text-ink">2. Financial data are not complete for every year.</span>
-            <span>
-              Some municipalities did not report for certain years, including the most recent ones. As a result, the
-              number of municipalities represented varies by year, and {LAST_YEAR} has the fewest.
-            </span>
-          </li>
-          <li className="flex flex-col gap-2">
-            <span className="font-medium text-ink">3. Regional spending is not included.</span>
-            <span>
-              Toronto and Hamilton pay for winter maintenance on all their roads. In Durham, Halton, Peel and York, the
-              Regions pay for regional roads from separate budgets that are not in this dataset. Figures for lower-tier
-              municipalities cover only part of the winter maintenance in their area, so compare them with Toronto and
-              Hamilton with care.
-            </span>
-            <span>
-              Road length has the opposite issue: it can include regional and provincial roads (see section 5), while
-              spending covers local roads only. Spending per km for lower-tier municipalities may therefore read low.
-            </span>
-          </li>
-          <li className="flex flex-col gap-2">
-            <span className="font-medium text-ink">4. Municipalities do not all deliver winter maintenance in the same way.</span>
-            <span>
-              Winter maintenance may be divided between regional and local governments. Some municipalities primarily use
-              in-house crews, while others rely more heavily on contractors.
-            </span>
-            <span>
-              Differences in service levels, road characteristics, operating models and financial reporting can all
-              influence reported expenditures.
-            </span>
-          </li>
-          <li className="flex flex-col gap-2">
-            <span className="font-medium text-ink">5. Figures are in nominal dollars.</span>
-            <span>
-              Spending is not adjusted for inflation. Part of any change since 2016 reflects rising prices for labour, fuel,
-              salt and contracts, not only changes in service.
-            </span>
-          </li>
-          <li className="flex flex-col gap-2">
-            <span className="font-medium text-ink">6. Some years are unusual.</span>
-            <span>
-              Toronto’s 2019 figure includes a one-time transfer, and 2022 was a high-cost year. Toronto’s low 2020 figure
-              reflects accounting adjustments, not a cheap winter.
-            </span>
-          </li>
-          <li className="flex flex-col gap-2">
-            <span className="font-medium text-ink">7. Snowfall figures are estimates.</span>
-            <span>
-              Snowfall moves almost identically across municipalities from year to year, so it likely comes from a model.
-              It is useful for broad comparisons, not for explaining one municipality’s spending in one year.
-            </span>
-          </li>
-        </ol>
-        <p className={BODY}>
-          For these reasons, a municipality with higher spending per resident is not necessarily less efficient, just as
-          lower spending does not necessarily indicate better performance. Spending differences reflect service levels,
-          road networks and contracts, not just snowfall. We built the dashboard to identify patterns, raise questions
-          and support further investigation, rather than draw conclusions from any single measure.
-        </p>
-      </section>
 
       <section id="data-sources" className={SECTION}>
         <h2 className={HEADING}>Data sources</h2>

@@ -27,7 +27,7 @@ export default function SiteHeader({ active, currentSlug }: { active: SiteSectio
   const profileActive = active === "profile";
 
   return (
-    <header className="z-20 border-b border-line bg-panel md:sticky md:top-0">
+    <header className="z-30 border-b border-line bg-panel md:sticky md:top-0">
       <div className="flex flex-col gap-y-1 px-4 pt-3 lg:px-6">
         <div className="min-w-0 pb-2 sm:pb-3">
           <Link href="/" className="text-lg font-semibold leading-tight text-ink sm:text-xl">
@@ -45,7 +45,7 @@ export default function SiteHeader({ active, currentSlug }: { active: SiteSectio
             . <span className="italic">First published November 2026.</span>
           </p>
         </div>
-        <nav aria-label="Sections" className="grid w-full grid-cols-2 text-sm sm:w-auto sm:grid-cols-3 sm:items-end sm:gap-1 sm:self-center">
+        <nav aria-label="Sections" className="grid w-full grid-cols-[auto_minmax(0,1fr)] text-sm sm:w-auto sm:grid-cols-3 sm:items-end sm:gap-1 sm:self-center">
           <Link
             href="/project"
             aria-current={active === "project" ? "page" : undefined}
@@ -71,7 +71,7 @@ export default function SiteHeader({ active, currentSlug }: { active: SiteSectio
               onChange={(e) => {
                 if (e.target.value) router.push(`/municipality/${e.target.value}`);
               }}
-              className={`${TAB_CLASS} ${tabColor(profileActive)} w-full cursor-pointer appearance-none bg-transparent px-7 [text-align-last:center] focus-visible:outline-2`}
+              className={`${TAB_CLASS} ${tabColor(profileActive)} w-full cursor-pointer appearance-none bg-transparent px-7 [text-align-last:center] focus-visible:outline-2 max-sm:pl-2 max-sm:pr-6 max-sm:tracking-normal`}
             >
               <option value="">Level of service</option>
               {MUNICIPALITY_GROUPS.map(({ region, names }) => (

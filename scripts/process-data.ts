@@ -50,15 +50,12 @@ function num(value: string | undefined): number | null {
 
 /**
  * Population for a year, from the 2016 and 2021 Census counts.
- * 2016 to 2021: straight-line interpolation between the two counts.
- * Before 2016: the 2016 count. After 2021: the 2021 count (no extrapolation).
+ * 2015 to 2020: the 2016 count. 2021 onward: the 2021 count. This matches winter-cost-per-resident in the source CSV.
  * If only one count exists, it is used for every year.
  */
 function populationForYear(year: number, pop2016: number | null, pop2021: number | null): number | null {
   if (pop2016 == null || pop2021 == null) return pop2021 ?? pop2016;
-  if (year <= 2016) return pop2016;
-  if (year >= 2021) return pop2021;
-  return pop2016 + ((pop2021 - pop2016) * (year - 2016)) / 5;
+  return year <= 2020 ? pop2016 : pop2021;
 }
 
 /** Divide, returning null when either side is missing or the divisor is 0. */

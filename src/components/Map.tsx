@@ -53,7 +53,7 @@ interface Hover {
 const PAD = 16;
 const TOOLTIP_W = 300;
 const TOOLTIP_H = 330;
-const LEGEND_H = 64;
+const LEGEND_H = 104; // Legend, its scale note, and the map credit strip below it.
 
 // Carto Positron (no labels) vector style. Key comes from NEXT_PUBLIC_CARTO_API_KEY in .env.local.
 const CARTO_KEY = process.env.NEXT_PUBLIC_CARTO_API_KEY;
@@ -61,7 +61,7 @@ const STYLE_URL = `https://basemaps.cartocdn.com/gl/positron-nolabels-gl-style/s
   CARTO_KEY ? `?key=${encodeURIComponent(CARTO_KEY)}` : ""
 }`;
 /** Map padding that keeps the boundaries clear of the legend; the legend wraps taller on narrow maps. */
-const fitPadding = (w: number) => ({ top: PAD, right: PAD, left: PAD, bottom: PAD + (w < 480 ? LEGEND_H + 36 : LEGEND_H) });
+const fitPadding = (w: number) => ({ top: PAD, right: PAD, left: PAD, bottom: PAD + (w < 480 ? LEGEND_H + 16 : LEGEND_H) });
 
 export default function GthaMap({
   geo,
@@ -323,7 +323,11 @@ export default function GthaMap({
           .attr("font-weight", 700);
         return b;
       })
-      .attr("transform", (o) => `translate(${path.centroid(byId.get(o.id)!)})`);
+      // Sits above the centre so it does not cover the municipality's name.
+      .attr("transform", (o) => {
+        const [x, y] = path.centroid(byId.get(o.id)!);
+        return `translate(${x},${y - 18})`;
+      });
     g.select("circle").attr("fill", (o) => o.color);
     g.select("text").text((o) => o.label);
   }, [geo, path, hover, selectedA, selectedB]);
@@ -366,14 +370,22 @@ export default function GthaMap({
         aria-label={`Map of ${METRIC_BY_KEY[metric].label}, ${year}`}
       />
 
-      <Legend title={METRIC_BY_KEY[metric].label} items={legend} />
+      <Legend
+        title={METRIC_BY_KEY[metric].label}
+        items={legend}
+        note={
+          METRIC_BY_KEY[metric].diverging
+            ? undefined
+            : `Shades apply to ${year} only. Compare within a year.`
+        }
+      />
 
       <div className="absolute right-3 top-3 z-20 flex flex-col overflow-hidden rounded-md border border-line bg-panel shadow">
         <button
           type="button"
           onClick={zoomIn}
           aria-label="Zoom in"
-          className="h-8 w-8 text-lg leading-none hover:bg-line focus-visible:outline-2 focus-visible:outline-offset-[-2px]"
+          className="h-10 w-10 sm:h-8 sm:w-8 text-lg leading-none hover:bg-line focus-visible:outline-2 focus-visible:outline-offset-[-2px]"
         >
           +
         </button>
@@ -381,7 +393,7 @@ export default function GthaMap({
           type="button"
           onClick={zoomOut}
           aria-label="Zoom out"
-          className="h-8 w-8 border-t border-line text-lg leading-none hover:bg-line focus-visible:outline-2 focus-visible:outline-offset-[-2px]"
+          className="h-10 w-10 sm:h-8 sm:w-8 border-t border-line text-lg leading-none hover:bg-line focus-visible:outline-2 focus-visible:outline-offset-[-2px]"
         >
           −
         </button>
@@ -389,7 +401,7 @@ export default function GthaMap({
           type="button"
           onClick={resetZoom}
           aria-label="Reset zoom"
-          className="h-8 w-8 border-t border-line text-xs hover:bg-line focus-visible:outline-2 focus-visible:outline-offset-[-2px]"
+          className="h-10 w-10 sm:h-8 sm:w-8 border-t border-line text-xs hover:bg-line focus-visible:outline-2 focus-visible:outline-offset-[-2px]"
         >
           ⟲
         </button>
@@ -483,19 +495,20 @@ function Sparkline({ series, year }: { series: MunicipalRecord[]; year: number }
   );
 }
 
-function Legend({ title, items }: { title: string; items: LegendItem[] }) {
+function Legend({ title, items, note }: { title: string; items: LegendItem[]; note?: string }) {
   return (
-    <div className="absolute bottom-2 left-2 max-w-[calc(100%-1rem)] rounded-md bg-panel/95 p-2 text-[11px] sm:bottom-3 sm:left-3 sm:max-w-[calc(100%-1.5rem)] sm:text-xs">
+    // Raised above the bottom strip so the map credit never covers it.
+    <div className="absolute bottom-8 left-2 max-w-[calc(100%-1rem)] rounded-md bg-panel/95 p-2 text-[11px] max-sm:right-2 sm:left-3 sm:max-w-[calc(100%-1.5rem)] sm:text-xs">
       <p className="mb-1 font-medium">{title}</p>
       {items.length > 0 ? (
-        <div className="flex flex-wrap items-end gap-x-0.5 gap-y-2">
+        <div className="grid grid-cols-6 items-start gap-x-0.5 gap-y-1 leading-tight sm:flex sm:flex-wrap sm:items-end sm:gap-y-2 sm:leading-normal">
           {items.map(({ color, label }) => (
-            <div key={`${color}-${label}`} className="flex w-[48px] flex-col gap-1 sm:w-[72px]">
+            <div key={`${color}-${label}`} className="flex min-w-0 flex-col gap-1 sm:w-[72px]">
               <span className="h-3 rounded-sm" style={{ background: color }} />
               <span className="tabular-nums text-ink-2">{label}</span>
             </div>
           ))}
-          <div className="ml-2 flex w-[56px] flex-col gap-1 sm:w-[72px]">
+          <div className="flex min-w-0 flex-col gap-1 sm:ml-2 sm:w-[72px]">
             <svg className="h-3 w-full rounded-sm" aria-hidden>
               <rect width="100%" height="100%" fill="url(#nodata-hatch)" />
             </svg>
@@ -505,6 +518,7 @@ function Legend({ title, items }: { title: string; items: LegendItem[] }) {
       ) : (
         <p className="text-ink-2">No data for this measure in this year.</p>
       )}
+      {note && items.length > 0 && <p className="mt-1 italic text-ink-2">{note}</p>}
     </div>
   );
 }
