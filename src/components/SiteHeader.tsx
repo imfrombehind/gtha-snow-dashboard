@@ -16,7 +16,7 @@ const MUNICIPALITY_GROUPS = [...new Set(data.records.map((r) => r.region))].map(
   names: [...new Set(data.records.filter((r) => r.region === region).map((r) => r.name))].sort(),
 }));
 
-const TAB_CLASS = "-mb-px uppercase tracking-wide cursor-pointer whitespace-nowrap border-b-2 px-2 pb-3 pt-2 text-center font-medium sm:shrink-0 sm:px-3 sm:pt-0";
+const TAB_CLASS = "-mb-px min-w-0 uppercase sm:tracking-wide cursor-pointer whitespace-nowrap border-b-2 px-1 pb-3 pt-2 text-center font-medium sm:shrink-0 sm:px-3 sm:pt-0";
 const tabColor = (active: boolean) =>
   active ? "border-ink text-ink" : "border-transparent text-ink-2 hover:text-ink";
 
@@ -25,6 +25,7 @@ export default function SiteHeader({ active, currentSlug }: { active: SiteSectio
   const router = useRouter();
 
   const profileActive = active === "profile";
+  const currentName = MUNICIPALITY_GROUPS.flatMap((g) => g.names).find((name) => slugify(name) === currentSlug);
 
   return (
     <header className="z-30 border-b border-line bg-panel md:sticky md:top-0">
@@ -45,13 +46,14 @@ export default function SiteHeader({ active, currentSlug }: { active: SiteSectio
             . <span className="italic">First published November 2026.</span>
           </p>
         </div>
-        <nav aria-label="Sections" className="grid w-full grid-cols-[auto_minmax(0,1fr)] text-sm sm:w-auto sm:grid-cols-3 sm:items-end sm:gap-1 sm:self-center">
+        <nav aria-label="Sections" className="grid w-full grid-cols-[1fr_1fr_1.5fr] items-end text-xs sm:w-auto sm:grid-cols-3 sm:gap-1 sm:self-center sm:text-sm">
           <Link
             href="/project"
             aria-current={active === "project" ? "page" : undefined}
-            className={`${TAB_CLASS} ${tabColor(active === "project")} col-span-2 sm:col-span-1`}
+            className={`${TAB_CLASS} ${tabColor(active === "project")}`}
           >
-            Project overview
+            <span aria-hidden="true" className="sm:hidden">Overview</span>
+            <span className="sr-only sm:not-sr-only">Project overview</span>
           </Link>
           <Link
             href="/"
@@ -60,7 +62,12 @@ export default function SiteHeader({ active, currentSlug }: { active: SiteSectio
           >
             Dashboard
           </Link>
-          <span className="group relative flex w-full items-end">
+          {/* The select is invisible and covers the tab, so it keeps its 16px size (no iOS zoom) while the tab matches the others. */}
+          <span className={`${TAB_CLASS} ${tabColor(profileActive)} relative flex items-center justify-center gap-1 has-[:focus-visible]:outline-2`}>
+            <span className="truncate">{currentName ?? "Level of service"}</span>
+            <svg aria-hidden="true" viewBox="0 0 12 12" className="h-3 w-3 shrink-0">
+              <path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
             <label htmlFor="open-municipality" className="sr-only">
               Level of service
             </label>
@@ -71,7 +78,7 @@ export default function SiteHeader({ active, currentSlug }: { active: SiteSectio
               onChange={(e) => {
                 if (e.target.value) router.push(`/municipality/${e.target.value}`);
               }}
-              className={`${TAB_CLASS} ${tabColor(profileActive)} w-full cursor-pointer appearance-none bg-transparent px-7 [text-align-last:center] focus-visible:outline-2 max-sm:pl-2 max-sm:pr-6 max-sm:tracking-normal`}
+              className="absolute inset-0 h-full w-full cursor-pointer appearance-none opacity-0"
             >
               <option value="">Level of service</option>
               {MUNICIPALITY_GROUPS.map(({ region, names }) => (
@@ -84,22 +91,6 @@ export default function SiteHeader({ active, currentSlug }: { active: SiteSectio
                 </optgroup>
               ))}
             </select>
-            <svg
-              aria-hidden="true"
-              viewBox="0 0 12 12"
-              className={`pointer-events-none absolute right-2 bottom-[18px] h-3 w-3 group-hover:text-ink ${
-                profileActive ? "text-ink" : "text-ink-2"
-              }`}
-            >
-              <path
-                d="M2.5 4.5 6 8l3.5-3.5"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
           </span>
         </nav>
       </div>
