@@ -3,8 +3,8 @@
 //
 // Rules:
 // - NS / NF / — / N/A / DATA GAP and "NS (…)" cells become null, with the reason kept in `missing`.
-// - Rows where sources disagree are listed in DISPUTED: only the disputed values change, and each
-//   shows both figures with their sources. A new conflict with no entry stops the build.
+// - Disputed cells arrive as "Sources differ: A, B" and are kept as written. Older conflict
+//   wording without that marker stops the build.
 // - Values with "[2°]" are kept and listed in `secondaryFields`.
 
 import assert from "node:assert/strict";
@@ -42,7 +42,7 @@ const CATEGORY_LABELS: Record<CategoryKey, string> = {
 
 const NA_VALUES = new Set(["", "NS", "NF", "—", "-", "N/A", "DATA GAP"]);
 
-type MissingReason = "not-published" | "not-verified" | "not-applicable" | "not-listed" | "conflict";
+type MissingReason = "not-published" | "not-verified" | "not-applicable" | "not-listed";
 type LevelField = "salting" | "plowing" | "completion" | "surface" | "mmsClass";
 type ClockStart =
   | "After snowfall ends"
@@ -93,39 +93,6 @@ function missingReason(text: string): MissingReason {
   if (/^NS\b/.test(text)) return "not-published";
   return "not-listed"; // Blank or a dash: the dataset's legend does not define these.
 }
-
-/**
- * Values the dataset flags as disputed. A string replaces the value and names both figures;
- * null holds it back because the dataset does not say what differs.
- */
-const DISPUTED: Record<string, { fields: Partial<Record<LevelField, string | null>>; notes?: string | null }> = {
-  "Toronto|arterial": {
-    fields: { completion: "Salting 4 hrs; sources differ on plowing: 6 hrs (page), 6–8 hrs (summary table)" },
-    notes: null,
-  },
-  "Mississauga|collector": {
-    fields: {
-      salting: "Sources differ: older text gives 2 cm for select collectors, 5 cm for local collectors",
-      plowing: "Sources differ: 5 cm (current), 2 cm for select collectors (older text)",
-    },
-    notes: null,
-  },
-  "Vaughan|collector": {
-    fields: { completion: "Sources differ: 4 hrs after snowfall ends (page), 16 hrs for all roads (news releases)" },
-    notes: null,
-  },
-  "King|collector": {
-    fields: { completion: "Sources differ: 16 hrs after snowfall ends (page), 12 hrs (2025 flyer)" },
-    notes: null,
-  },
-  "King|local": { fields: { completion: "Sources differ: 12 hrs, 16 hrs (sources not named)" } },
-  "East Gwillimbury|local": { fields: { plowing: "Sources differ: 8 cm (page), 10 cm (older guide)" }, notes: null },
-  "Burlington|sidewalks": {
-    fields: { completion: "Sources differ: within 48 hrs after end of snowfall (aim), up to 72 hrs after snowfall ends (same page)" },
-  },
-  "Aurora|windrows": { fields: { plowing: null, completion: null }, notes: "65+/disability" },
-};
-const usedDisputes = new Set<string>();
 
 // Key Finding 2 of the dataset names the clock each municipality uses for its roads.
 const SNOWFALL_CLOCK = new Set([
@@ -240,27 +207,23 @@ for (const cells of tableRows(lines, "## Tab 1")) {
   const key = CATEGORY_MAP[categoryLabel];
   const map = levels.get(municipality) ?? {};
   if (key) {
-    const disputeKey = `${municipality}|${key}`;
-    const dispute = DISPUTED[disputeKey];
-    const flagged = /conflict/i.test(notesRaw) || [pad(4), pad(5), pad(6)].some((c) => /conflict|\svs\s/i.test(c));
-    if (flagged && !dispute) throw new Error(`Source conflict in ${disputeKey} has no DISPUTED entry`);
-    if (dispute) usedDisputes.add(disputeKey);
+    // Disputed cells carry "Sources differ: A, B" and are shown as-is; older conflict wording must be rewritten in the dataset first.
+    const unmarked = [notesRaw, pad(4), pad(5), pad(6)].some((c) => /conflict|\svs\s/i.test(c) && !/sources differ/i.test(c));
+    if (unmarked) throw new Error(`Unmarked source conflict in ${municipality}|${key}`);
     const fields: Record<LevelField, Cell> = { salting, plowing, completion, surface, mmsClass: mms };
     const shown = {} as Record<LevelField, string | null>;
     const missing: LevelOfService["missing"] = {};
     const secondaryFields: LevelField[] = [];
     for (const field of Object.keys(fields) as LevelField[]) {
       const cell = fields[field];
-      const override = dispute?.fields[field];
-      shown[field] = override === undefined ? cell.text : override;
-      const reason = override === null ? "conflict" : override ? null : cell.missing;
-      if (reason) missing[field] = reason;
+      shown[field] = cell.text;
+      if (cell.missing) missing[field] = cell.missing;
       if (cell.secondary && shown[field]) secondaryFields.push(field);
     }
     map[key] = {
       terminology: terminology.text,
       ...shown,
-      notes: dispute && "notes" in dispute ? dispute.notes! : notes.text,
+      notes: notes.text,
       missing,
       secondaryFields,
       clock: shown.completion ? clockStart(municipality, key, shown.completion) : null,
@@ -274,8 +237,6 @@ for (const cells of tableRows(lines, "## Tab 1")) {
   }
   levels.set(municipality, map);
 }
-
-for (const key of Object.keys(DISPUTED)) assert(usedDisputes.has(key), `DISPUTED entry ${key} matches no dataset row`);
 
 const profiles: MunicipalityProfile[] = [];
 for (const name of dashboardNames) {

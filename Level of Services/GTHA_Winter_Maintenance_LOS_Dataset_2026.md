@@ -1,6 +1,15 @@
 # GTHA Winter Maintenance Levels of Service: Normalized Dataset (30 Jurisdictions, verified November 12, 2026)
 
+*Revised November 23, 2026: QC fix for source conflicts (see Revision Log).*
+
 Only Toronto publishes a complete, council-approved winter LOS matrix covering trigger, maximum operating time and target surface for every asset class. The other 29 jurisdictions publish partial data, and three (Halton Region, Uxbridge, Brock) have no usable numeric standard on any page I could verify. Treat this dataset as a comparison of what each jurisdiction has published, not as a like-for-like performance benchmark.
+
+## Revision Log (November 23, 2026)
+- Disputed values now show both figures and their sources ("Sources differ: …") in the affected cell only. Undisputed values in the same row are no longer withheld.
+- Newly marked: Burlington sidewalks (48 vs 72 hrs), King local roads (previously "12–16 hrs (conflict)"), and Vaughan local roads (12 hrs vs 16 hrs for all roads).
+- Aurora windrows: not a conflict. The program page and the Town's 2026–27 announcement agree (≥ 8 cm, after all Town roads are cleared, done within 12 hrs of service start, $200/season).\[65\]\[66\] Flag removed.
+- Mississauga collectors: the 2 cm figure moved from the salting column to the plowing column, where the dispute is; salting restored to "Salted only below 5 cm".
+- "Conflict" wording removed from notes; the cell value itself now carries the marker.
 
 ## TL;DR
 - **Toronto has the most complete and most aggressive published standard.** Plowing starts at 2.5 cm on expressways, 5 cm on arterials and 8 cm on collectors and locals, with maximum operating times of 2, 6, 8 and 14 hrs. Sidewalks, cycling infrastructure, bus stops and pedestrian crossovers all trigger at 2 cm. Most suburban municipalities instead promise to clear all roads within 16–24 hrs after snowfall ends, with residential plowing triggered at 5–10 cm.
@@ -18,6 +27,7 @@ Only Toronto publishes a complete, council-approved winter LOS matrix covering t
 - **NS** = "Not specified on website" (find/replace on export). **NF** = official page not found/verified.
 - **Directory** in Source_URL = the municipality's Official Winter Page URL in the Source_Directory tab (restore with XLOOKUP on Municipality). A full URL is given wherever a different official page was used.
 - Expressway rows exist only for Toronto and Hamilton; other jurisdictions have no municipal expressways (400-series highways are maintained by MTO). Upper-tier Regions carry rows only for the categories they own or address.
+- **Sources differ: A (source), B (source)** = two official or public sources give different values for this cell. Not resolved; shown as-is. Only the disputed cell carries this marker; other cells in the row are undisputed.
 - **[2°]** = figure from a secondary source (news, directory or a peer municipality's report) because the official page could not be fully retrieved. Verify before publishing.
 
 ## Tab 1: LOS_Comparison_Data
@@ -25,7 +35,7 @@ Only Toronto publishes a complete, council-approved winter LOS matrix covering t
 | Region | Municipality | Standardized_Asset_Category | Municipal_Terminology | Salting_Anti_Icing_Trigger | Plowing_Trigger_cm | Completion_Timeline_Hours | Target_Surface_Condition | Ontario_MMS_Class_Referenced | Key_Notes_&_Exceptions | Source_URL |
 |---|---|---|---|---|---|---|---|---|---|---|
 | Single-Tier | City of Toronto | Expressway | Expressways (DVP & Gardiner) | Brine "as required"; salting "when snow first accumulates" (< 2.5 cm) | 2.5 cm | Salting 2 hrs; plowing 2 hrs max operating time per round | Bare Pavement | No | Multiple rounds may be needed; brine max 6 hrs | Directory |
-| Single-Tier | City of Toronto | Arterial / Major Road | Arterials / "Major roads, transit routes and streets with hills" | Brine as required; salting when snow first accumulates (< 5 cm) | 5 cm | Salting 4 hrs; plowing 6 hrs (summary table: 6–8 hrs) | Bare Pavement | No | Page conflict: 6 vs 6–8 hrs | Directory |
+| Single-Tier | City of Toronto | Arterial / Major Road | Arterials / "Major roads, transit routes and streets with hills" | Brine as required; salting when snow first accumulates (< 5 cm) | 5 cm | Salting 4 hrs; plowing: Sources differ: 6 hrs (LOS table), 6–8 hrs (summary table) | Bare Pavement | No | Max operating time per round | Directory |
 | Single-Tier | City of Toronto | Collector Road | Collector | Brine as required; salting < 8 cm | 8 cm | Salting 4 hrs; plowing 8 hrs | Centre Bare | No | Centre bare = 2.5 m cleared at centre | Directory |
 | Single-Tier | City of Toronto | Local / Residential Road | Local Roads / Residential streets; Laneways | Salting < 8 cm | 8 cm | Salting 8 hrs; plowing 14 hrs; laneways 24 hrs from end of snowfall | Safe & Passable / Snow Packed | No | Laneways are the only explicit end-of-snowfall clock | Directory |
 | Single-Tier | City of Toronto | Sidewalks | Sidewalks (combined salting & plowing) | 2 cm | 2 cm | 12 hrs | Safe & Passable / Snow Packed | No | City mechanically clears all sidewalks | Directory |
@@ -47,7 +57,7 @@ Only Toronto publishes a complete, council-approved winter LOS matrix covering t
 | Halton | Burlington | Arterial / Major Road | Primary roads | Brine pre-storm; salted at 1–4 cm | 5 cm | All roads within 24 hrs after snow stops (Snow Removal Plan) | NS | No | Snow Event (parking ban) at 7.5 cm; Regional roads not addressed | Directory |
 | Halton | Burlington | Collector Road | Secondary roads | Salted at 1–4 cm | 5 cm | Within 24 hrs after snow stops (Snow Removal Plan) | NS | No | — | Directory |
 | Halton | Burlington | Local / Residential Road | Residential roads | Sanded at intersections, hills, curves | 7.5 cm, after primary/secondary | Within 24 hrs after snow stops (Snow Removal Plan) | Safe & Passable / Snow Packed | No | "not maintained to bare pavement" | Directory |
-| Halton | Burlington | Sidewalks | All sidewalks (~850 km) | Salted/sanded as required | 5 cm | Aim: within 48 hrs after end of snowfall; page also says plowed after all roads, "up to 72 hours after snowfall has ended" | NS | No | Same page states 48 hrs (sidewalks) and 72 hrs (high-volume off-road pathways) | Directory |
+| Halton | Burlington | Sidewalks | All sidewalks (~850 km) | Salted/sanded as required | 5 cm | Sources differ: 48 hrs after end of snowfall (stated aim), up to 72 hrs after snowfall ends (plowed after all roads) — both on Snow Removal Plan page | NS | No | 72 hrs also stated for high-volume off-road pathways | Directory |
 | Halton | Burlington | Cycling Infrastructure / Multi-Use Trails | Multi-use pathways | NS | 5 cm | Up to 72 hrs | NS | No | — | Directory |
 | Halton | Burlington | Driveway Windrows | Windrow removal (registered) | N/A | NS | After road plowing | NS | No | Eligibility not verified | Directory |
 | Halton | Burlington | Bus Stops & Pedestrian Crossovers | Transit stops | NS | 5 cm | Up to 72 hrs | NS | No | — | Directory |
@@ -77,7 +87,7 @@ Only Toronto publishes a complete, council-approved winter LOS matrix covering t
 | Peel | Region of Peel | Cycling Infrastructure / Multi-Use Trails | Roadway designated bicycle lane | NS | ≥ 2.5 cm | Back to ≤ 2.5 cm within 8 hrs\[1\] | NS | Yes | — | Directory |
 | Peel | Region of Peel | Driveway Windrows | — | N/A | N/A | N/A | Resident Responsibility | No | Region "tries to minimize" snow in driveways\[45\] | https://peelregion.ca/transportation-roads/road-maintenance/winter-operations/snow-removal |
 | Peel | Mississauga | Arterial / Major Road | Major and priority roads | Starts when snow starts; < 5 cm salted only | 5 cm | < 5 cm salted 12 hrs; 5–15 cm 12 hrs; 15–30 cm 24 hrs (after snowfall ends) | NS | No | SWE puts timelines on hold; renewed heavy snow restarts process;\[4\] Regional roads by Peel | Directory |
-| Peel | Mississauga | Collector Road | Priority roads (collectors) | Older text: select collectors 2 cm, local collectors 5 cm | 5 cm (current) | As priority roads | NS | No | CONFLICT: 2 cm vs 5 cm | Directory |
+| Peel | Mississauga | Collector Road | Priority roads (collectors) | Salted only below 5 cm | Sources differ: 5 cm (current page), 2 cm for select collectors (older text) | As priority roads | NS | No | Older text gave 5 cm for local collectors | Directory |
 | Peel | Mississauga | Local / Residential Road | Residential (secondary) roads | < 5 cm salted 24 hrs | 5 cm | 5–15 cm 24 hrs; 15–30 cm 36 hrs; > 30 cm > 36 hrs | NS | No | Some residential streets are priority | Directory |
 | Peel | Mississauga | Sidewalks | Priority sidewalks; residential sidewalks | Salted < 5 cm | 5 cm | Priority 12–24 hrs; residential 24–36 hrs | NS | No | City clears all sidewalks\[4\] | Directory |
 | Peel | Mississauga | Cycling Infrastructure / Multi-Use Trails | Trails, bike lanes | Salted < 5 cm | 5 cm | NS | NS | No | Old maps say > 8 cm (outdated) | Directory |
@@ -150,8 +160,8 @@ Only Toronto publishes a complete, council-approved winter LOS matrix covering t
 | York | Region of York | Cycling Infrastructure / Multi-Use Trails | Regional bike lanes, MUPs | NS | NS | NS | NS | No | 160+ km bike lanes, 15 km MUPs cleared Jan 2026\[55\] | https://www.york.ca/newsroom/news/york-region-responds-back-back-winter-storms-keeping-roads-safe |
 | York | Region of York | Driveway Windrows | — | N/A | N/A | N/A | NS | No | Refers to local programs\[2\] | Directory |
 | York | Vaughan | Arterial / Major Road | Regional roads | — | — | — | — | No | Maintained by York Region | Directory |
-| York | Vaughan | Collector Road | Main roads | NS | 5 cm | 4 hrs after snowfall ends | NS | No | Conflict: news releases say all roads 16 hrs | Directory |
-| York | Vaughan | Local / Residential Road | Residential roads | NS | 5 cm | 12 hrs after snowfall ends | NS | No | — | Directory |
+| York | Vaughan | Collector Road | Main roads | NS | 5 cm | Sources differ: 4 hrs after snowfall ends (snow removal page), 16 hrs for all roads (City news releases) | NS | No | — | Directory |
+| York | Vaughan | Local / Residential Road | Residential roads | NS | 5 cm | Sources differ: 12 hrs after snowfall ends (snow removal page), 16 hrs for all roads (City news releases) | NS | No | — | Directory |
 | York | Vaughan | Sidewalks | Main road / residential sidewalks | NS | 5 cm | NS | NS | No | City clears both | Directory |
 | York | Vaughan | Cycling Infrastructure / Multi-Use Trails | — | NS | NS | NS | NS | No | — | Directory |
 | York | Vaughan | Driveway Windrows | Windrow-clearing service | N/A | Follows plow | Up to 4 hrs after plow passes\[56\] | NS | No | Universal service | Directory |
@@ -171,8 +181,8 @@ Only Toronto publishes a complete, council-approved winter LOS matrix covering t
 | York | Richmond Hill | Driveway Windrows | City-wide windrow clearing | N/A | 5 cm | 13 hrs | NS | No | Universal; excludes sidewalk-plow windrows\[58\] | Directory |
 | York | Richmond Hill | Bus Stops & Pedestrian Crossovers | — | NS | NS | NS | NS | No | — | Directory |
 | York | King | Arterial / Major Road | Regional roads | — | — | — | — | Partial | Maintained by York Region | Directory |
-| York | King | Collector Road | Major / Class 3–4 routes | Treated at 8 cm | 8 cm | 16 hrs after snowfall ends (page) vs 12 hrs (2025 flyer) | NS | Partial (MMS named) | CONFLICT 12 vs 16 hrs | Directory |
-| York | King | Local / Residential Road | Class 5 / cul-de-sacs | 8 cm | 8 cm | 12–16 hrs (conflict) | NS | Partial | Cul-de-sacs last | Directory |
+| York | King | Collector Road | Major / Class 3–4 routes | Treated at 8 cm | 8 cm | Sources differ: 16 hrs after snowfall ends (Township page), 12 hrs (2025 flyer) | NS | Partial (MMS named) | — | Directory |
+| York | King | Local / Residential Road | Class 5 / cul-de-sacs | 8 cm | 8 cm | Sources differ: 16 hrs after snowfall ends (Township page), 12 hrs (2025 flyer) | NS | Partial | Cul-de-sacs last | Directory |
 | York | King | Sidewalks | Township sidewalks (contracted) | NS | NS | NS | NS | Partial | Resident duty not verified | Directory |
 | York | King | Cycling Infrastructure / Multi-Use Trails | — | NS | NS | NS | NS | Partial | — | Directory |
 | York | King | Driveway Windrows | Senior Snow Removal Assistance Program | N/A | ≥ 10 cm | 24 hrs after road & sidewalk plowing (Mon–Fri)\[59\] | NS | Partial | 65+ households | https://www.king.ca/snowremoval |
@@ -182,7 +192,7 @@ Only Toronto publishes a complete, council-approved winter LOS matrix covering t
 | York | Aurora | Local / Residential Road | Secondary roads | NS | 8 cm | 24 hrs | NS ("Select Treatment") | No | — | Directory |
 | York | Aurora | Sidewalks | All Town sidewalks & walkways | NS | 5 cm | NS (24 hrs per news [2°]) | NS | No | Primary and school routes first | Directory |
 | York | Aurora | Cycling Infrastructure / Multi-Use Trails | — | NS | NS | NS | NS | No | — | Directory |
-| York | Aurora | Driveway Windrows | Windrow Removal Pilot Program | N/A | ≥ 8 cm, after all roads | Up to additional 12 hrs\[60\] | NS | No | 65+/disability; CONFLICT with main page | https://www.aurora.ca/town-services/roads-and-traffic/winter-maintenance/windrow-removal-pilot-program/ |
+| York | Aurora | Driveway Windrows | Windrow Removal Pilot Program | N/A | ≥ 8 cm, after all Town roads are cleared | Within 12 hrs of service start\[60\]\[66\] | NS | No | $200/season fee; seniors and residents with disabilities; Dec 1, 2026–Apr 1, 2027; one-car-width opening\[65\]\[66\] | https://www.aurora.ca/town-services/roads-and-traffic/winter-maintenance/windrow-removal-pilot-program/ |
 | York | Aurora | Bus Stops & Pedestrian Crossovers | — | NS | NS | NS | NS | No | — | Directory |
 | York | Whitchurch-Stouffville | Arterial / Major Road | Arterial roads | NS | 5 cm | ~8 hrs after end of storm (all classes) | NS | No | Regional arterials by York | Directory |
 | York | Whitchurch-Stouffville | Collector Road | Collector roads | NS | 5 cm | ~8 hrs | NS | No | — | Directory |
@@ -200,7 +210,7 @@ Only Toronto publishes a complete, council-approved winter LOS matrix covering t
 | York | Newmarket | Bus Stops & Pedestrian Crossovers | — | NS | NS | NS | NS | Yes | — | Directory |
 | York | East Gwillimbury | Arterial / Major Road | Regional roads | — | — | — | — | No | Maintained by York Region | Directory |
 | York | East Gwillimbury | Collector Road | Primary roads | NS | 8 cm | NS | NS | No | — | Directory |
-| York | East Gwillimbury | Local / Residential Road | Residential streets | NS | 8 cm (page) vs 10 cm (older guide) | NS | NS | No | CONFLICT | Directory |
+| York | East Gwillimbury | Local / Residential Road | Residential streets | NS | Sources differ: 8 cm (Town page), 10 cm (older guide) | NS | NS | No | — | Directory |
 | York | East Gwillimbury | Sidewalks | All Town sidewalks | NS | 2.5 cm | Usually 24 hrs after storm\[31\] | NS | No | — | Directory |
 | York | East Gwillimbury | Cycling Infrastructure / Multi-Use Trails | — | NS | NS | NS | NS | No | — | Directory |
 | York | East Gwillimbury | Driveway Windrows | — | N/A | N/A | N/A | Resident Responsibility | No | Financial assistance pilot only | Directory |
@@ -242,16 +252,16 @@ Only Toronto publishes a complete, council-approved winter LOS matrix covering t
 | Markham | York | https://www.markham.ca/neighbourhood-services/roads-sidewalks/winter-road-services | November 12, 2026 | City: ~2,100 km roads, sidewalks, 60+/disability windrows; Region: Regional arterials |
 | Richmond Hill | York | https://www.richmondhill.ca/en/living-here/Snow-Removal.aspx | November 12, 2026 | City: local roads, ~750 km sidewalks, universal windrows; Region: Regional roads |
 | King | York | https://www.king.ca/transportation | November 12, 2026 | Township: roads, sidewalks (contracted), seniors windrows; Region: Regional roads |
-| Aurora | York | https://www.aurora.ca/town-services/roads-and-traffic/winter-maintenance/ | November 12, 2026 | Town: roads incl. Yonge per Town table, all sidewalks, windrow pilot; Region: Regional roads |
+| Aurora | York | https://www.aurora.ca/town-services/roads-and-traffic/winter-maintenance/ | November 12, 2026 (windrows re-verified November 23, 2026) | Town: roads incl. Yonge per Town table, all sidewalks, paid windrow pilot (seniors/disability); Region: Regional roads |
 | Whitchurch-Stouffville | York | https://www.townofws.ca/live/roads-parking-and-traffic/winter-roads/snow-plowing/ | November 12, 2026 | Town: local roads, urban sidewalks, free seniors windrows; Region: Regional roads |
 | Newmarket | York | https://www.newmarket.ca/roads-transportation/roads-sidewalks/snow-removal | November 12, 2026 | Town: local roads, 364 km sidewalks, windrow pilot; Region: Regional roads |
 | East Gwillimbury | York | https://www.eastgwillimbury.ca/en/municipal-services/snow-clearing.aspx | November 12, 2026 | Town: local roads, all sidewalks; residents: windrows; Region: Regional roads |
 | Georgina | York | https://www.georgina.ca/living-here/roads-and-sidewalks/winter-maintenance-and-snow-removal | November 12, 2026 | Town: local roads, 140 km sidewalks/paths, seniors windrows; Region: Regional roads |
 
 ## Recommendations
-1. **Add two helper columns before building the dashboard.** `Clock_Basis` = End of storm / Trigger depth reached / Per-round operating time / Not stated. `Source_Quality` = Official page / Official PDF / Secondary [2°].
+1. **Add helper columns before building the dashboard.** `Clock_Basis` = End of storm / Trigger depth reached / Per-round operating time / Not stated. `Source_Quality` = Official page / Official PDF / Secondary [2°]. `Conflict_Flag` = Yes/No, with `Conflict_Column` naming the disputed column, so the site marks individual cells without text-matching the notes.
 2. **Close the data gaps first.** Uxbridge and Brock have no verified page. Request Halton Region's unpublished standards and the Durham and York council LOS tables. Retrieve Hamilton's full Appendix B to PW18096(a).
-3. **Re-verify the flagged conflicts before publishing:** Mississauga (2 vs 5 cm), King (12 vs 16 hrs), East Gwillimbury (8 vs 10 cm), Aurora (windrows), Vaughan (4/12 vs 16 hrs), Toronto (6 vs 6–8 hrs) and Burlington (48 vs 72 hrs).
+3. **Resolve the "Sources differ" cells before publishing:** Toronto arterial plowing (6 vs 6–8 hrs), Mississauga collector plowing (5 vs 2 cm), Vaughan collector and local completion (4/12 vs 16 hrs), King collector and local completion (16 vs 12 hrs), East Gwillimbury local plowing (8 vs 10 cm) and Burlington sidewalk completion (48 vs 72 hrs).
 4. **Treat Oakville's [2°] road figures as provisional** until Oakville's own "Snow Clearing Standards" page is captured.
 
 ## Caveats
@@ -326,3 +336,5 @@ Only Toronto publishes a complete, council-approved winter LOS matrix covering t
 62. [Applications open for Newmarket's windrow clearing program - Newmarket News](https://www.newmarkettoday.ca/local-news/applications-open-for-newmarkets-windrow-clearing-program-12874225)
 63. [Winter Mapping - Town of Georgina](https://experience.arcgis.com/experience/e1dd25d0594d405294c79c5a48be769f?draft=true)
 64. [Town declares winter maintenance event and significant weather event](https://www.georgina.ca/article/town-declares-winter-maintenance-event-and-significant-weather-event-0)
+65. [Windrow Removal Pilot Program - Town of Aurora](https://www.aurora.ca/Windrow)
+66. [Applications Open for Aurora's 2026-2027 Windrow Removal Program](https://www.aurora.ca/news/posts/applications-open-for-aurora-s-2026-2027-windrow-removal-program/)

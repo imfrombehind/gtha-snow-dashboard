@@ -410,9 +410,13 @@ export default function ProjectPage() {
             counts, so per-resident figures for every other year are estimates.
           </li>
           <li>
-            <span className="font-medium text-ink">Snowfall:</span> the annual average median snowfall in millimetres for
-            each municipality, from 2015 to 2025. It shows how winter weather relates to reported spending. The
-            year-to-year pattern is almost identical in every municipality, so treat these figures as estimates.
+            <span className="font-medium text-ink">Snowfall:</span> Total snowfall data (mm) were obtained from the{" "}
+            <ExternalLink href="https://climatedata.ca/maps/?var=total_solid_precipitation&th=sntot&dataset=216&dataOpacity=100&labelOpacity=100&lat=43.43497&lng=-77.71729&zoom=8">
+              Statistically Downscaled Global Climate Projections
+            </ExternalLink>{" "}
+            (CanDCS-M6, CMIP6), which summarizes an ensemble of 26 global climate models (24 for SSP3-7.0) across four
+            emissions scenarios: SSP1-2.6, SSP2-4.5, SSP3-7.0, and SSP5-8.5. Current baseline snowfall is estimated as the
+            average ensemble medians across all four scenarios.
           </li>
         </ul>
       </section>
@@ -492,7 +496,8 @@ export default function ProjectPage() {
             Total winter spending ÷ total operating expenses (item 9910), as a percentage.
           </Formula>
           <Formula name="Average snowfall (estimated)">
-            Annual average median snowfall in millimetres, 2015 to 2025. Reported as it appears in the snowfall data.
+            Total snowfall in millimetres: the average of the CanDCS-M6 ensemble medians across SSP1-2.6, SSP2-4.5,
+            SSP3-7.0 and SSP5-8.5. Reported as it appears in the snowfall data.
           </Formula>
         </dl>
         <h4 className="font-serif text-base font-semibold text-ink">Area and GTHA indicators</h4>
@@ -606,7 +611,16 @@ export default function ProjectPage() {
               GTHA municipal boundary GIS data
             </a>
           </li>
-          <li className="font-medium">Historical snowfall data</li>
+          <li>
+            <a
+              href="https://climatedata.ca/maps/?var=total_solid_precipitation&th=sntot&dataset=216&dataOpacity=100&labelOpacity=100&lat=43.43497&lng=-77.71729&zoom=8"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium underline underline-offset-2"
+            >
+              ClimateData.ca: Statistically Downscaled Global Climate Projections (CanDCS-M6, CMIP6)
+            </a>
+          </li>
           <li>
             <a
               href="https://geohub.lio.gov.on.ca/datasets/mnrf::ontario-road-network-orn-road-net-element/about"

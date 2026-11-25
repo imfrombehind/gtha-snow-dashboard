@@ -31,7 +31,7 @@ export default function SiteHeader({ active, currentSlug }: { active: SiteSectio
     <header className="z-30 border-b border-line bg-panel md:sticky md:top-0">
       <div className="flex flex-col gap-y-1 px-4 pt-3 lg:px-6">
         <div className="min-w-0 pb-2 sm:pb-3">
-          <Link href="/" className="text-lg font-semibold leading-tight text-ink sm:text-xl">
+          <Link href="/" className="text-[27px] font-semibold leading-tight text-ink sm:text-3xl">
             Winter Maintenance Across Greater Toronto and Hamilton Area (GTHA)
           </Link>
           <p className="mt-1 text-xs leading-snug text-ink-2 sm:text-sm">

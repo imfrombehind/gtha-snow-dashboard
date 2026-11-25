@@ -86,7 +86,7 @@ const TABLE_ROWS: TableRow[] = [
     format: "avgSnowMm",
     highlight: ["avgSnowMm"],
     info: {
-      text: "An estimate of annual median snowfall. The year-to-year pattern is almost identical in every municipality.",
+      text: "Baseline total snowfall from climate projections (CanDCS-M6), averaged across four emissions scenarios.",
       href: "/project#population-and-snowfall",
     },
   },

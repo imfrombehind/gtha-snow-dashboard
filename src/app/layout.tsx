@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Source_Sans_3, Source_Serif_4 } from "next/font/google";
 import "./globals.css";
+import FeedbackFooter from "@/components/FeedbackFooter";
 
 // Design DNA type pair (Source Institutional, FP49): serif headings, sans body and figures.
 const sourceSerif = Source_Serif_4({
@@ -59,6 +60,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
         {children}
+        <FeedbackFooter />
       </body>
     </html>
   );

@@ -119,12 +119,18 @@ input[type="range"].year-slider::-webkit-slider-thumb {
   margin-top: -12px;
   border: 0;
   background: url("/icons/snowflake.png") center / contain no-repeat;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: none;
 }
 input[type="range"].year-slider::-moz-range-thumb {
   width: 28px;
   height: 28px;
   border: 0;
   background: url("/icons/snowflake.png") center / contain no-repeat;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: none;
 }
 
 /*

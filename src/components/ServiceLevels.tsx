@@ -14,7 +14,7 @@ import {
 } from "@/lib/typography";
 
 export type CategoryKey = "expressway" | "arterial" | "collector" | "local" | "sidewalks" | "cycling" | "windrows" | "busStops";
-type MissingReason = "not-published" | "not-verified" | "not-applicable" | "not-listed" | "conflict";
+type MissingReason = "not-published" | "not-verified" | "not-applicable" | "not-listed";
 export type LevelField = "salting" | "plowing" | "completion" | "surface" | "mmsClass";
 
 export interface Level {
@@ -54,7 +54,6 @@ const MISSING_LABEL: Record<MissingReason, string> = {
   "not-verified": "Not verified",
   "not-applicable": "Not applicable",
   "not-listed": "Not listed",
-  conflict: "Source conflict",
 };
 const COLUMNS: { field: LevelField; label: string }[] = [
   { field: "salting", label: "Salting trigger" },
@@ -191,7 +190,6 @@ const VALUE_GUIDE: [string, string][] = [
 const MISSING_GUIDE: [string, string][] = [
   ["Not published", "The municipality’s website does not state this value."],
   ["Not verified", "The official page could not be found or confirmed."],
-  ["Source conflict", "A conflict is flagged, but what differs is not recorded, so the value is held back."],
   ["Not applicable", "The measure does not apply to this service."],
   ["Not listed", "Our dataset has no entry for this value."],
   ["Not covered for this Region", "Regions have entries only for the services they own or address."],

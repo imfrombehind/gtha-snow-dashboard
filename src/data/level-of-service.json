@@ -1,5 +1,5 @@
 {
-  "source": "GTHA Winter Maintenance Levels of Service_ Normalized Dataset for 30 Jurisdictions (2026).md",
+  "source": "GTHA_Winter_Maintenance_LOS_Dataset_2026.md",
   "categories": [
     {
       "key": "expressway",
@@ -172,9 +172,9 @@
     {
       "name": "Aurora",
       "region": "York",
-      "responsibility": "Town: roads incl. Yonge per Town table, all sidewalks, windrow pilot; Region: Regional roads",
+      "responsibility": "Town: roads incl. Yonge per Town table, all sidewalks, paid windrow pilot (seniors/disability); Region: Regional roads",
       "sourceUrl": "https://www.aurora.ca/town-services/roads-and-traffic/winter-maintenance/",
-      "lastVerified": "November 12, 2026",
+      "lastVerified": "November 12, 2026 (windrows re-verified November 23, 2026)",
       "unverified": false,
       "levels": {
         "arterial": {
@@ -273,19 +273,17 @@
         "windrows": {
           "terminology": "Windrow Removal Pilot Program",
           "salting": null,
-          "plowing": null,
-          "completion": null,
+          "plowing": "≥ 8 cm, after all Town roads are cleared",
+          "completion": "Within 12 hrs of service start",
           "surface": null,
           "mmsClass": "No",
-          "notes": "65+/disability",
+          "notes": "$200/season fee; seniors and residents with disabilities; Dec 1, 2026–Apr 1, 2027; one-car-width opening",
           "missing": {
             "salting": "not-applicable",
-            "plowing": "conflict",
-            "completion": "conflict",
             "surface": "not-published"
           },
           "secondaryFields": [],
-          "clock": null,
+          "clock": "Not stated",
           "depth": null
         },
         "busStops": {
@@ -514,10 +512,10 @@
           "terminology": "All sidewalks (~850 km)",
           "salting": "Salted/sanded as required",
           "plowing": "5 cm",
-          "completion": "Sources differ: within 48 hrs after end of snowfall (aim), up to 72 hrs after snowfall ends (same page)",
+          "completion": "Sources differ: 48 hrs after end of snowfall (stated aim), up to 72 hrs after snowfall ends (plowed after all roads) — both on Snow Removal Plan page",
           "surface": null,
           "mmsClass": "No",
-          "notes": "Same page states 48 hrs (sidewalks) and 72 hrs (high-volume off-road pathways)",
+          "notes": "72 hrs also stated for high-volume off-road pathways",
           "missing": {
             "surface": "not-published"
           },
@@ -985,7 +983,7 @@
         "local": {
           "terminology": "Residential streets",
           "salting": null,
-          "plowing": "Sources differ: 8 cm (page), 10 cm (older guide)",
+          "plowing": "Sources differ: 8 cm (Town page), 10 cm (older guide)",
           "completion": null,
           "surface": null,
           "mmsClass": "No",
@@ -1607,7 +1605,7 @@
           "terminology": "Major / Class 3–4 routes",
           "salting": "Treated at 8 cm",
           "plowing": "8 cm",
-          "completion": "Sources differ: 16 hrs after snowfall ends (page), 12 hrs (2025 flyer)",
+          "completion": "Sources differ: 16 hrs after snowfall ends (Township page), 12 hrs (2025 flyer)",
           "surface": null,
           "mmsClass": "Partial (MMS named)",
           "notes": null,
@@ -1625,7 +1623,7 @@
           "terminology": "Class 5 / cul-de-sacs",
           "salting": "8 cm",
           "plowing": "8 cm",
-          "completion": "Sources differ: 12 hrs, 16 hrs (sources not named)",
+          "completion": "Sources differ: 16 hrs after snowfall ends (Township page), 12 hrs (2025 flyer)",
           "surface": null,
           "mmsClass": "Partial",
           "notes": "Cul-de-sacs last",
@@ -1633,7 +1631,7 @@
             "surface": "not-published"
           },
           "secondaryFields": [],
-          "clock": "Not stated",
+          "clock": "After snowfall ends",
           "depth": [
             8,
             8
@@ -2010,12 +2008,12 @@
         },
         "collector": {
           "terminology": "Priority roads (collectors)",
-          "salting": "Sources differ: older text gives 2 cm for select collectors, 5 cm for local collectors",
-          "plowing": "Sources differ: 5 cm (current), 2 cm for select collectors (older text)",
+          "salting": "Salted only below 5 cm",
+          "plowing": "Sources differ: 5 cm (current page), 2 cm for select collectors (older text)",
           "completion": "As priority roads",
           "surface": null,
           "mmsClass": "No",
-          "notes": null,
+          "notes": "Older text gave 5 cm for local collectors",
           "missing": {
             "surface": "not-published"
           },
@@ -3060,10 +3058,10 @@
           "terminology": "Arterials / \"Major roads, transit routes and streets with hills\"",
           "salting": "Brine as required; salting when snow first accumulates (< 5 cm)",
           "plowing": "5 cm",
-          "completion": "Salting 4 hrs; sources differ on plowing: 6 hrs (page), 6–8 hrs (summary table)",
+          "completion": "Salting 4 hrs; plowing: Sources differ: 6 hrs (LOS table), 6–8 hrs (summary table)",
           "surface": "Bare Pavement",
           "mmsClass": "No",
-          "notes": null,
+          "notes": "Max operating time per round",
           "missing": {},
           "secondaryFields": [],
           "clock": "Per operating round",
@@ -3217,7 +3215,7 @@
           "terminology": "Main roads",
           "salting": null,
           "plowing": "5 cm",
-          "completion": "Sources differ: 4 hrs after snowfall ends (page), 16 hrs for all roads (news releases)",
+          "completion": "Sources differ: 4 hrs after snowfall ends (snow removal page), 16 hrs for all roads (City news releases)",
           "surface": null,
           "mmsClass": "No",
           "notes": null,
@@ -3236,7 +3234,7 @@
           "terminology": "Residential roads",
           "salting": null,
           "plowing": "5 cm",
-          "completion": "12 hrs after snowfall ends",
+          "completion": "Sources differ: 12 hrs after snowfall ends (snow removal page), 16 hrs for all roads (City news releases)",
           "surface": null,
           "mmsClass": "No",
           "notes": null,
