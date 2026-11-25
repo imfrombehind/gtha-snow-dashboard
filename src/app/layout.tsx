@@ -22,6 +22,7 @@ const DESCRIPTION =
   "Compare winter road maintenance spending, snowfall and service levels across 26 GTHA municipalities, 2015 to 2026, from public financial data.";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://gtha-snow-dashboard.vercel.app"),
   title: TITLE,
   description: DESCRIPTION,
   openGraph: {
@@ -31,7 +32,7 @@ export const metadata: Metadata = {
     locale: "en_CA",
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: TITLE,
     description: DESCRIPTION,
   },
