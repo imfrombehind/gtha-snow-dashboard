@@ -2,7 +2,7 @@
 
 Next.js + TypeScript + Tailwind + D3 + MapLibre dashboard of winter road maintenance spending and levels of service across the 26 GTHA municipalities. Builds to a fully static site.
 
-By Thuan Truong and Thinh Lang. Live at [gtha-snow-dashboard.vercel.app](https://gtha-snow-dashboard.vercel.app).
+By Thuan Truong and Thinh Lang. Live at [winter-maintenance-dashboard.vercel.app](https://winter-maintenance-dashboard.vercel.app).
 
 ## Run
 
